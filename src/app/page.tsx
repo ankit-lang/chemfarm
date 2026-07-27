@@ -85,9 +85,9 @@ export default function HomePage() {
         </div>
 
         {/* Interactive Product Index & Card Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full max-w-full overflow-hidden">
           {/* Interactive Proximity LineSidebar Navigation */}
-          <div className="lg:col-span-4 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-md sticky top-24">
+          <div className="lg:col-span-4 bg-white p-5 sm:p-8 rounded-2xl border border-slate-200 shadow-md lg:sticky lg:top-24 w-full overflow-hidden">
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
               <h3 className="text-xs font-bold uppercase tracking-widest text-[#198754]">
                 Interactive Product Index

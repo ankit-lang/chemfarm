@@ -1,6 +1,9 @@
 .line-sidebar {
   display: block;
   user-select: none;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .line-sidebar__list {
@@ -10,6 +13,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .line-sidebar__item {
@@ -18,9 +22,10 @@
   gap: 0.75rem;
   cursor: pointer;
   transform: translateX(calc(var(--effect, 0) * var(--max-shift, 20px)));
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.15s ease;
   color: var(--text-color, #64748b);
   font-size: var(--font-size, 1rem);
+  max-width: 100%;
 }
 
 .line-sidebar__item:hover,
@@ -29,11 +34,12 @@
 }
 
 .line-sidebar__marker {
+  flex-shrink: 0;
   width: calc(4px + var(--effect, 0) * var(--marker-length, 24px));
   height: 2px;
   background-color: var(--marker-color, #cbd5e1);
   border-radius: 1px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, width 0.15s ease;
 }
 
 .line-sidebar__item:hover .line-sidebar__marker,
@@ -46,14 +52,19 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
+  min-width: 0;
+  flex: 1;
 }
 
 .line-sidebar__index {
+  flex-shrink: 0;
   font-size: 0.8em;
   opacity: 0.6;
   font-family: monospace;
 }
 
 .line-sidebar__text {
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.3;
 }
