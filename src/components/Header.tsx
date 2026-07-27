@@ -54,7 +54,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
       {/* Top Banner Bar */}
-      <div className="bg-slate-100 text-slate-600 text-xs py-2 px-4 border-b border-slate-200 hidden md:block">
+      <div className="bg-white text-slate-600 text-xs py-2 px-4 border-b border-slate-200 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <span className="flex items-center space-x-1.5 text-slate-700 font-medium">
@@ -86,18 +86,17 @@ export default function Header() {
 
       {/* Navbar Main */}
       <nav
-        className={`w-full transition-all duration-300 glass-nav ${
-          isScrolled ? "py-3 shadow-md bg-white/95 border-b border-slate-200" : "py-4"
-        }`}
+        className={`w-full bg-white border-b border-slate-200 transition-all duration-300 ${isScrolled ? "py-3 shadow-md" : "py-4"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative h-11 w-auto flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-12 w-auto flex items-center justify-center p-2 bg-whiteshadow-sm group-hover:scale-105 transition-transform duration-300">
               <img
                 src="/logo/logo.png"
                 alt="Chemfarm International Logo"
-                className="h-10 w-auto object-contain"
+                className="h-9 w-auto object-contain"
               />
             </div>
           </Link>
@@ -106,22 +105,20 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-8">
             <Link
               href="/"
-              className={`text-sm font-medium transition-colors ${
-                pathname === "/"
+              className={`text-sm font-medium transition-colors ${pathname === "/"
                   ? "text-[#198754] font-semibold"
                   : "text-slate-700 hover:text-[#198754]"
-              }`}
+                }`}
             >
               Home
             </Link>
 
             <Link
               href="/about"
-              className={`text-sm font-medium transition-colors ${
-                pathname === "/about"
+              className={`text-sm font-medium transition-colors ${pathname === "/about"
                   ? "text-[#198754] font-semibold"
                   : "text-slate-700 hover:text-[#198754]"
-              }`}
+                }`}
             >
               About Us
             </Link>
@@ -134,11 +131,10 @@ export default function Header() {
             >
               <Link
                 href="/products"
-                className={`text-sm font-medium transition-colors flex items-center space-x-1 ${
-                  pathname?.startsWith("/products")
+                className={`text-sm font-medium transition-colors flex items-center space-x-1 ${pathname?.startsWith("/products")
                     ? "text-[#198754] font-semibold"
                     : "text-slate-700 hover:text-[#198754]"
-                }`}
+                  }`}
               >
                 <span>Products</span>
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
@@ -202,11 +198,10 @@ export default function Header() {
             >
               <Link
                 href="/industries"
-                className={`text-sm font-medium transition-colors flex items-center space-x-1 ${
-                  pathname?.startsWith("/industries")
+                className={`text-sm font-medium transition-colors flex items-center space-x-1 ${pathname?.startsWith("/industries")
                     ? "text-[#198754] font-semibold"
                     : "text-slate-700 hover:text-[#198754]"
-                }`}
+                  }`}
               >
                 <span>Industries We Serve</span>
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
@@ -247,22 +242,29 @@ export default function Header() {
 
             <Link
               href="/quality"
-              className={`text-sm font-medium transition-colors ${
-                pathname === "/quality"
+              className={`text-sm font-medium transition-colors ${pathname === "/quality"
                   ? "text-[#198754] font-semibold"
                   : "text-slate-700 hover:text-[#198754]"
-              }`}
+                }`}
             >
-              Quality & Certifications
+              Quality
             </Link>
+
+            <a
+              href="/catalogue.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-slate-700 hover:text-[#198754] transition-colors"
+            >
+              Catalogue
+            </a>
 
             <Link
               href="/contact"
-              className={`text-sm font-medium transition-colors ${
-                pathname === "/contact"
+              className={`text-sm font-medium transition-colors ${pathname === "/contact"
                   ? "text-[#198754] font-semibold"
                   : "text-slate-700 hover:text-[#198754]"
-              }`}
+                }`}
             >
               Contact Us
             </Link>

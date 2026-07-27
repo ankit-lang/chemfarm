@@ -29,9 +29,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-100 text-slate-700 border-t border-slate-200">
+    <footer className="bg-white text-slate-700 border-t border-slate-200">
       {/* Pre-Footer Global CTA Strip */}
-      <div className="bg-gradient-to-r from-emerald-50 via-slate-50 to-emerald-50 border-b border-slate-200 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white border-b border-slate-200 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <span className="text-[#198754] font-semibold text-xs uppercase tracking-widest">
@@ -69,11 +69,13 @@ export default function Footer() {
         {/* Column 1: Brand & Bio */}
         <div className="lg:col-span-2 space-y-4">
           <Link href="/" className="inline-block">
-            <img
-              src="/logo/logo.png"
-              alt="Chemfarm International Logo"
-              className="h-12 w-auto object-contain"
-            />
+            <div className="p-2.5 bg-white  inline-block">
+              <img
+                src="/logo/logo.png"
+                alt="Chemfarm International Logo"
+                className="h-11 w-auto object-contain"
+              />
+            </div>
           </Link>
 
           <p className="text-sm text-slate-600 leading-relaxed max-w-md">
