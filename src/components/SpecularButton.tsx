@@ -232,13 +232,10 @@ export default function SpecularButton({
       last = now;
       const p = propsRef.current;
 
-      idleAngle += p.speed * dt;
-      const steer = p.followMouse && pointerAngle != null && (!p.autoAnimate || proximityT > 0);
-      const target = (steer && pointerAngle !== null) ? pointerAngle : idleAngle;
-      const diff = ((target - angle + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-      angle += diff * (1 - Math.exp(-dt * 7));
+      idleAngle += Math.max(p.speed, 0.8) * dt * 2.2;
+      angle = idleAngle;
 
-      const brightTarget = p.autoAnimate ? 1 : proximityT;
+      const brightTarget = 1.0;
       bright += (brightTarget - bright) * (1 - Math.exp(-dt * 8));
 
       lineC.set(p.lineColor);

@@ -164,10 +164,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. INDUSTRIES WE SERVE - REACT BITS SCROLLSTACK INTEGRATION */}
-      <section className="py-20 bg-slate-900 text-white border-y border-slate-800 relative overflow-hidden">
+      {/* 5. INDUSTRIES WE SERVE - SILKY SMOOTH GPU-ACCELERATED STICKY CARDS */}
+      <section className="py-20 bg-slate-900 text-white border-y border-slate-800 relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
             <BlurText
               text="Industry Focus"
               className="text-[#4ade80] font-bold text-xs uppercase tracking-widest"
@@ -178,73 +178,68 @@ export default function HomePage() {
               delayMs={150}
             />
             <BlurText
-              text="Scroll down to explore our stacked chemistry formulations for each industrial domain."
+              text="Scroll down to explore our chemistry formulations across dedicated industrial sectors."
               className="text-slate-400 text-base"
               delayMs={250}
             />
           </div>
 
-          <div className="relative w-full">
-            <ScrollStack
-              useWindowScroll={true}
-              itemDistance={70}
-              itemStackDistance={25}
-              stackPosition="20%"
-              scaleEndPosition="10%"
-              itemScale={0.035}
-              blurAmount={1.5}
-            >
-              {Object.values(INDUSTRIES_DATA).map((ind, idx) => (
-                <ScrollStackItem key={ind.id}>
-                  <div className="bg-white text-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                    <div className="space-y-4 max-w-xl">
-                      <div className="flex items-center space-x-3">
-                        <div
-                          className="p-3.5 rounded-2xl bg-slate-100 border border-slate-200"
-                          style={{ color: ind.accentColor }}
-                        >
-                          {getIndustryIcon(ind.iconName)}
-                        </div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                          Sector 0{idx + 1}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat">
-                          {ind.name}
-                        </h3>
-                        <p className="text-sm font-semibold text-[#198754] mt-1">
-                          {ind.tagline}
-                        </p>
-                      </div>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        {ind.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {ind.solutions.slice(0, 3).map((sol, i) => (
-                          <span
-                            key={i}
-                            className="text-xs font-medium px-3 py-1 bg-slate-100 text-slate-700 rounded-full border border-slate-200"
-                          >
-                            ✓ {sol.title}
-                          </span>
-                        ))}
-                      </div>
+          <div className="space-y-6 pb-12">
+            {Object.values(INDUSTRIES_DATA).map((ind, idx) => (
+              <div
+                key={ind.id}
+                className="sticky bg-white text-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 transition-all duration-300"
+                style={{
+                  top: `calc(90px + ${idx * 24}px)`,
+                  zIndex: idx + 1,
+                }}
+              >
+                <div className="space-y-4 max-w-xl">
+                  <div className="flex items-center space-x-3">
+                    <div
+                      className="p-3.5 rounded-2xl bg-slate-100 border border-slate-200"
+                      style={{ color: ind.accentColor }}
+                    >
+                      {getIndustryIcon(ind.iconName)}
                     </div>
-
-                    <div className="w-full md:w-auto flex flex-col items-stretch md:items-end gap-4 border-t md:border-t-0 border-slate-100 pt-4 md:pt-0">
-                      <Link
-                        href={`/industries/${ind.slug}`}
-                        className="px-6 py-3 rounded-xl bg-[#198754] hover:bg-[#146c43] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2 group whitespace-nowrap"
-                      >
-                        <span>Explore {ind.name} Solutions</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      Sector 0{idx + 1}
+                    </span>
                   </div>
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat">
+                      {ind.name}
+                    </h3>
+                    <p className="text-sm font-semibold text-[#198754] mt-1">
+                      {ind.tagline}
+                    </p>
+                  </div>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {ind.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {ind.solutions.slice(0, 3).map((sol, i) => (
+                      <span
+                        key={i}
+                        className="text-xs font-medium px-3 py-1 bg-slate-100 text-slate-700 rounded-full border border-slate-200"
+                      >
+                        ✓ {sol.title}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="w-full md:w-auto flex flex-col items-stretch md:items-end gap-4 border-t md:border-t-0 border-slate-100 pt-4 md:pt-0">
+                  <Link
+                    href={`/industries/${ind.slug}`}
+                    className="px-6 py-3 rounded-xl bg-[#198754] hover:bg-[#146c43] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2 group whitespace-nowrap"
+                  >
+                    <span>Explore {ind.name} Solutions</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
