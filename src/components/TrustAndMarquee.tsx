@@ -31,23 +31,23 @@ export function TrustStrip() {
   ];
 
   return (
-    <div className="bg-[#0b1329] border-y border-slate-800/80 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="bg-slate-100 border-y border-slate-200 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((item, idx) => {
           const Icon = item.icon;
           return (
             <div
               key={idx}
-              className="flex items-center space-x-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800/60 hover:border-slate-700 transition-all hover:-translate-y-0.5 shadow-sm"
+              className="flex items-center space-x-4 p-4 rounded-xl bg-white border border-slate-200 hover:border-[#198754]/40 transition-all hover:-translate-y-0.5 shadow-sm"
             >
-              <div className={`p-3 rounded-lg bg-slate-950 ${item.color}`}>
+              <div className={`p-3 rounded-lg bg-slate-50 border border-slate-100 ${item.color}`}>
                 <Icon className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-white font-montserrat">
+                <h4 className="text-sm font-bold text-slate-900 font-montserrat">
                   {item.title}
                 </h4>
-                <p className="text-xs text-slate-400 mt-0.5">{item.desc}</p>
+                <p className="text-xs text-slate-600 mt-0.5">{item.desc}</p>
               </div>
             </div>
           );
@@ -71,15 +71,15 @@ export function InfiniteMarquee() {
   ];
 
   return (
-    <div className="bg-[#040814] border-b border-slate-800 py-4 overflow-hidden relative">
-      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[#040814] to-transparent"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[#040814] to-transparent"></div>
+    <div className="bg-white border-b border-slate-200 py-4 overflow-hidden relative">
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-white to-transparent"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-white to-transparent"></div>
 
       <div className="animate-marquee flex items-center space-x-8 whitespace-nowrap">
         {[...Badges, ...Badges].map((item, index) => (
           <div
             key={index}
-            className="flex items-center space-x-3 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-slate-300 font-medium tracking-wide"
+            className="flex items-center space-x-3 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs text-slate-700 font-medium tracking-wide shadow-2xs"
           >
             <span className="w-2 h-2 rounded-full bg-[#198754]"></span>
             <span>{item}</span>

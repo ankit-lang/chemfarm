@@ -28,11 +28,11 @@ export default async function IndustryDetailPage({ params }: PageProps) {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 text-slate-800">
       {/* Banner */}
-      <section className="bg-[#070d1e] text-white py-16 lg:py-24 border-b border-slate-800 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#198754]/15 blur-3xl pointer-events-none"></div>
+      <section className="bg-gradient-to-b from-slate-100 via-white to-emerald-50/20 text-slate-900 py-16 lg:py-24 border-b border-slate-200 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#198754]/10 blur-3xl pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-          <div className="flex items-center space-x-2 text-xs font-bold text-[#DAA520] uppercase tracking-wider">
+          <div className="flex items-center space-x-2 text-xs font-bold text-[#B8860B] uppercase tracking-wider">
             <Link href="/industries" className="hover:underline">
               Industries
             </Link>
@@ -40,11 +40,11 @@ export default async function IndustryDetailPage({ params }: PageProps) {
             <span>{industry.name}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight text-slate-900">
             {industry.bannerTitle}
           </h1>
 
-          <p className="text-lg text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-lg text-slate-600 max-w-3xl leading-relaxed">
             {industry.bannerSub}
           </p>
         </div>
@@ -85,13 +85,13 @@ export default async function IndustryDetailPage({ params }: PageProps) {
       </section>
 
       {/* Detailed Content Sections */}
-      <section className="bg-[#080f24] text-white py-20 border-y border-slate-800">
+      <section className="bg-slate-100 text-slate-900 py-20 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <span className="text-[#DAA520] font-bold text-xs uppercase tracking-widest">
+            <span className="text-[#198754] font-bold text-xs uppercase tracking-widest">
               Performance Breakdown
             </span>
-            <h2 className="text-3xl font-bold font-montserrat">
+            <h2 className="text-3xl font-bold font-montserrat text-slate-900">
               Technical Overview & Details
             </h2>
           </div>
@@ -100,18 +100,18 @@ export default async function IndustryDetailPage({ params }: PageProps) {
             {industry.detailSections.map((sec, idx) => (
               <div
                 key={idx}
-                className="bg-[#0e172c] border border-slate-800 rounded-2xl p-8 space-y-4 shadow-xl"
+                className="bg-white border border-slate-200 rounded-2xl p-8 space-y-4 shadow-sm"
               >
                 <div className="flex items-center space-x-3 text-[#198754]">
                   <FlaskConical className="w-6 h-6" />
-                  <h3 className="text-xl font-bold font-montserrat text-white">
+                  <h3 className="text-xl font-bold font-montserrat text-slate-900">
                     {sec.title}
                   </h3>
                 </div>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {sec.content}
                 </p>
-                <div className="pt-2 flex items-center space-x-2 text-xs text-[#DAA520]">
+                <div className="pt-2 flex items-center space-x-2 text-xs text-[#B8860B]">
                   <ShieldCheck className="w-4 h-4" />
                   <span>QC Batch Verified • Custom Shade Formulation</span>
                 </div>
@@ -138,11 +138,11 @@ export default async function IndustryDetailPage({ params }: PageProps) {
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
-            href="tel:+919876543210"
-            className="px-7 py-3.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm flex items-center justify-center space-x-2"
+            href="tel:+918800642621"
+            className="px-7 py-3.5 rounded-lg bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-sm shadow-sm flex items-center justify-center space-x-2"
           >
-            <Phone className="w-4 h-4 text-[#DAA520]" />
-            <span>Speak to Technical Sales</span>
+            <Phone className="w-4 h-4 text-[#B8860B]" />
+            <span>+91 8800642621</span>
           </a>
         </div>
       </section>

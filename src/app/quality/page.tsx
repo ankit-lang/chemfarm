@@ -14,15 +14,15 @@ export default function QualityPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 text-slate-800">
       {/* Banner */}
-      <section className="bg-[#070d1e] text-white py-16 lg:py-24 border-b border-slate-800 relative">
+      <section className="bg-gradient-to-b from-slate-100 via-white to-emerald-50/20 text-slate-900 py-16 lg:py-24 border-b border-slate-200 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-[#DAA520] font-bold text-xs uppercase tracking-widest">
+          <span className="text-[#B8860B] font-bold text-xs uppercase tracking-widest">
             ISO & Quality Control Standards
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat">
+          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat text-slate-900">
             Quality You Can Rely On
           </h1>
-          <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-xl text-slate-600 max-w-3xl leading-relaxed">
             Strict quality control across manufacturing, sourcing and supply.
           </p>
         </div>
@@ -82,53 +82,53 @@ export default function QualityPage() {
       </section>
 
       {/* Certifications Section */}
-      <section className="bg-[#080f24] text-white py-20 border-y border-slate-800">
+      <section className="bg-slate-100 text-slate-900 py-20 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[#DAA520] font-bold text-xs uppercase tracking-widest">
+            <span className="text-[#198754] font-bold text-xs uppercase tracking-widest">
               Compliance & Accreditations
             </span>
-            <h2 className="text-3xl font-bold font-montserrat">
+            <h2 className="text-3xl font-bold font-montserrat text-slate-900">
               Certifications & Standards
             </h2>
-            <p className="text-slate-400 text-sm">
+            <p className="text-slate-600 text-sm">
               Our facilities and chemical products adhere to international compliance framework requirements.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0e172c] border border-slate-800 rounded-xl p-6 text-center space-y-3">
-              <div className="w-12 h-12 mx-auto rounded-full bg-emerald-950 text-[#198754] flex items-center justify-center">
+            <div className="bg-white border border-slate-200 rounded-xl p-6 text-center space-y-3 shadow-sm">
+              <div className="w-12 h-12 mx-auto rounded-full bg-emerald-50 text-[#198754] flex items-center justify-center">
                 <FileCheck className="w-6 h-6" />
               </div>
-              <h4 className="text-lg font-bold text-white font-montserrat">
+              <h4 className="text-lg font-bold text-slate-900 font-montserrat">
                 ISO 9001:2015
               </h4>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-600">
                 Quality Management System certified for manufacturing and supply consistency.
               </p>
             </div>
 
-            <div className="bg-[#0e172c] border border-slate-800 rounded-xl p-6 text-center space-y-3">
-              <div className="w-12 h-12 mx-auto rounded-full bg-sky-950 text-[#0077B6] flex items-center justify-center">
+            <div className="bg-white border border-slate-200 rounded-xl p-6 text-center space-y-3 shadow-sm">
+              <div className="w-12 h-12 mx-auto rounded-full bg-sky-50 text-[#0077B6] flex items-center justify-center">
                 <Award className="w-6 h-6" />
               </div>
-              <h4 className="text-lg font-bold text-white font-montserrat">
+              <h4 className="text-lg font-bold text-slate-900 font-montserrat">
                 REACH Compliant
               </h4>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-600">
                 Adherence to European chemical export standards and environmental guidelines.
               </p>
             </div>
 
-            <div className="bg-[#0e172c] border border-slate-800 rounded-xl p-6 text-center space-y-3">
-              <div className="w-12 h-12 mx-auto rounded-full bg-amber-950 text-[#DAA520] flex items-center justify-center">
+            <div className="bg-white border border-slate-200 rounded-xl p-6 text-center space-y-3 shadow-sm">
+              <div className="w-12 h-12 mx-auto rounded-full bg-amber-50 text-[#B8860B] flex items-center justify-center">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h4 className="text-lg font-bold text-white font-montserrat">
+              <h4 className="text-lg font-bold text-slate-900 font-montserrat">
                 Lab Batch Testing
               </h4>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-600">
                 Every dispatch is accompanied by a Certificate of Analysis (COA).
               </p>
             </div>

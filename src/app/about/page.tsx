@@ -16,13 +16,13 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 text-slate-800">
       {/* Banner */}
-      <section className="bg-[#070d1e] text-white py-16 lg:py-24 border-b border-slate-800 relative overflow-hidden">
-        <div className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-[#198754]/20 blur-3xl pointer-events-none"></div>
+      <section className="bg-gradient-to-b from-slate-100 via-white to-emerald-50/20 text-slate-900 py-16 lg:py-24 border-b border-slate-200 relative overflow-hidden">
+        <div className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-[#198754]/10 blur-3xl pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-          <span className="text-[#DAA520] font-bold text-xs uppercase tracking-widest">
+          <span className="text-[#B8860B] font-bold text-xs uppercase tracking-widest">
             Est. 1992 • 30+ Years of Excellence
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat">
+          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat text-slate-900">
             About Chemfarm International
           </h1>
           <p className="text-xl text-[#198754] font-serif italic max-w-2xl">
@@ -59,17 +59,17 @@ export default function AboutPage() {
               <span className="text-xs text-slate-600">Supply Network</span>
             </div>
             <div className="p-3 rounded-lg bg-slate-100 border border-slate-200 text-center col-span-2 sm:col-span-1">
-              <span className="block text-2xl font-bold text-[#DAA520]">Global</span>
+              <span className="block text-2xl font-bold text-[#B8860B]">Global</span>
               <span className="text-xs text-slate-600">Export Ready</span>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-5 bg-[#0e172c] border border-slate-800 text-white rounded-2xl p-8 space-y-6 shadow-xl">
-          <h3 className="text-xl font-bold font-montserrat text-white border-b border-slate-800 pb-4">
+        <div className="lg:col-span-5 bg-white border border-slate-200 text-slate-900 rounded-2xl p-8 space-y-6 shadow-xl">
+          <h3 className="text-xl font-bold font-montserrat text-slate-900 border-b border-slate-100 pb-4">
             What We Manufacture & Supply
           </h3>
-          <ul className="space-y-3 text-sm text-slate-300">
+          <ul className="space-y-3 text-sm text-slate-700">
             <li className="flex items-center space-x-3">
               <CheckCircle2 className="w-5 h-5 text-[#198754] flex-shrink-0" />
               <span>High-Fastness Dyes & Shade Formulations</span>
@@ -79,7 +79,7 @@ export default function AboutPage() {
               <span>Organic & Inorganic Industrial Pigments</span>
             </li>
             <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-[#DAA520] flex-shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[#B8860B] flex-shrink-0" />
               <span>Application-Specific Specialty Chemicals</span>
             </li>
             <li className="flex items-center space-x-3">
@@ -91,7 +91,7 @@ export default function AboutPage() {
               <span>Textile Processing & Finishing Chemicals</span>
             </li>
             <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
               <span>Quality-Assured Industrial Raw Ingredients</span>
             </li>
           </ul>
@@ -99,26 +99,26 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="bg-[#080f24] text-white py-20 border-y border-slate-800">
+      <section className="bg-slate-100 text-slate-900 py-20 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-[#0e172c] border border-slate-800 rounded-2xl p-8 space-y-4 shadow-xl">
-            <div className="w-12 h-12 rounded-lg bg-[#198754]/20 text-[#198754] flex items-center justify-center">
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-lg bg-emerald-50 text-[#198754] flex items-center justify-center">
               <Target className="w-6 h-6" />
             </div>
-            <h3 className="text-2xl font-bold font-montserrat text-white">Our Vision</h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <h3 className="text-2xl font-bold font-montserrat text-slate-900">Our Vision</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
               To become a globally recognised and trusted chemical company by delivering
               innovative, high-quality and sustainable chemical solutions that create value
               for customers and industries worldwide.
             </p>
           </div>
 
-          <div className="bg-[#0e172c] border border-slate-800 rounded-2xl p-8 space-y-4 shadow-xl">
-            <div className="w-12 h-12 rounded-lg bg-[#0077B6]/20 text-[#0077B6] flex items-center justify-center">
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-lg bg-sky-50 text-[#0077B6] flex items-center justify-center">
               <Sparkles className="w-6 h-6" />
             </div>
-            <h3 className="text-2xl font-bold font-montserrat text-white">Our Mission</h3>
-            <ul className="space-y-2 text-slate-300 text-sm">
+            <h3 className="text-2xl font-bold font-montserrat text-slate-900">Our Mission</h3>
+            <ul className="space-y-2 text-slate-600 text-sm">
               <li className="flex items-start space-x-2">
                 <span className="text-[#198754] font-bold">•</span>
                 <span>Deliver premium-quality products consistently across every batch.</span>

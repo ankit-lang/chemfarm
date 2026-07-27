@@ -184,15 +184,15 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 text-slate-800">
       {/* Banner */}
-      <section className="bg-[#070d1e] text-white py-16 lg:py-20 border-b border-slate-800">
+      <section className="bg-gradient-to-b from-slate-100 via-white to-emerald-50/20 text-slate-900 py-16 lg:py-20 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-[#DAA520] font-bold text-xs uppercase tracking-widest">
+          <span className="text-[#B8860B] font-bold text-xs uppercase tracking-widest">
             Enquiries & Supply Assistance
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat">
+          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat text-slate-900">
             Get In Touch
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-lg text-slate-600 max-w-3xl leading-relaxed">
             Talk to our team about your requirement, or request a customized quote.
           </p>
         </div>
@@ -209,67 +209,79 @@ export default function ContactPage() {
 
         {/* Right Column: Contact Details Panel */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="bg-[#0e172c] border border-slate-800 text-white rounded-2xl p-8 space-y-6 shadow-xl">
-            <h3 className="text-xl font-bold font-montserrat border-b border-slate-800 pb-4 text-[#DAA520]">
-              Chemfarm International Headquarters
+          <div className="bg-white border border-slate-200 text-slate-900 rounded-2xl p-8 space-y-6 shadow-xl">
+            <h3 className="text-xl font-bold font-montserrat border-b border-slate-100 pb-4 text-[#B8860B]">
+              Chemfarm International Head Office
             </h3>
 
-            <div className="space-y-4 text-sm text-slate-300">
+            <div className="space-y-4 text-sm text-slate-700">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-[#DAA520] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[#B8860B] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block text-white font-semibold">Registered Address</strong>
-                  <p>Chemfarm House, Industrial Zone, Gujarat / India</p>
+                  <strong className="block text-slate-900 font-semibold">Head Office Address</strong>
+                  <p className="leading-relaxed">
+                    DLF Palm Court, 704, 7th Floor,<br />
+                    Sector 16, MG Road, Industrial Development Area,<br />
+                    Near Bata Chowk, Gurugram, Haryana 122007, India
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-[#198754] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block text-white font-semibold">Phone Support</strong>
-                  <p>+91 98765 43210 / +91 22 1234 5678</p>
+                  <strong className="block text-slate-900 font-semibold">Phone Support</strong>
+                  <a href="tel:+918800642621" className="hover:text-[#198754] transition-colors">+91 8800642621</a>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-[#0077B6] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block text-white font-semibold">Email Enquiries</strong>
-                  <p>info@chemfarm.com / sales@chemfarm.com</p>
+                  <strong className="block text-slate-900 font-semibold">Email Enquiries</strong>
+                  <a href="mailto:sales@chemfarminternational.com" className="hover:text-[#198754] transition-colors">sales@chemfarminternational.com</a>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
-                <Clock className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
+                <Globe2 className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block text-white font-semibold">Business Hours</strong>
+                  <strong className="block text-slate-900 font-semibold">Website</strong>
+                  <a href="https://www.chemfarminternational.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#198754] transition-colors">www.chemfarminternational.com</a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <Clock className="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <strong className="block text-slate-900 font-semibold">Business Hours</strong>
                   <p>Monday - Saturday: 9:00 AM - 6:30 PM (IST)</p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-800 grid grid-cols-2 gap-3 text-center text-xs">
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+            <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3 text-center text-xs">
+              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                 <Building2 className="w-4 h-4 mx-auto text-[#198754] mb-1" />
-                <span className="text-slate-300">Pan-India Warehouses</span>
+                <span className="text-slate-700">Pan-India Warehouses</span>
               </div>
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                 <Globe2 className="w-4 h-4 mx-auto text-[#0077B6] mb-1" />
-                <span className="text-slate-300">Export Desk Active</span>
+                <span className="text-slate-700">Export Desk Active</span>
               </div>
             </div>
           </div>
 
           {/* Map Container Placeholder */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-white space-y-3">
-            <h4 className="font-bold font-montserrat text-sm text-slate-300 flex items-center space-x-2">
-              <MapPin className="w-4 h-4 text-[#DAA520]" />
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 text-slate-900 space-y-3 shadow-sm">
+            <h4 className="font-bold font-montserrat text-sm text-slate-800 flex items-center space-x-2">
+              <MapPin className="w-4 h-4 text-[#B8860B]" />
               <span>Location Map Preview</span>
             </h4>
-            <div className="w-full h-48 bg-slate-800 rounded-lg flex flex-col items-center justify-center p-4 border border-slate-700 text-center">
+            <div className="w-full h-48 bg-slate-50 rounded-lg flex flex-col items-center justify-center p-4 border border-slate-200 text-center">
               <Building2 className="w-8 h-8 text-[#198754] mb-2" />
-              <p className="text-xs font-semibold text-white">Chemfarm Manufacturing Unit & Corporate Office</p>
-              <p className="text-[11px] text-slate-400 mt-1">Gujarat Industrial Corridor, India</p>
+              <p className="text-xs font-semibold text-slate-900">DLF Palm Court, 704, 7th Floor</p>
+              <p className="text-[11px] text-slate-600 mt-1">Sector 16, MG Road, Gurugram, Haryana 122007</p>
             </div>
           </div>
         </div>

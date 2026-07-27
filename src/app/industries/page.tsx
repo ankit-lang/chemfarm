@@ -30,15 +30,15 @@ export default function IndustriesOverviewPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 text-slate-800">
       {/* Banner */}
-      <section className="bg-[#070d1e] text-white py-16 lg:py-20 border-b border-slate-800">
+      <section className="bg-gradient-to-b from-slate-100 via-white to-emerald-50/20 text-slate-900 py-16 lg:py-20 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-[#DAA520] font-bold text-xs uppercase tracking-widest">
+          <span className="text-[#B8860B] font-bold text-xs uppercase tracking-widest">
             Application Verticals
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat">
+          <h1 className="text-4xl sm:text-5xl font-extrabold font-montserrat text-slate-900">
             Industries We Serve
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-lg text-slate-600 max-w-3xl leading-relaxed">
             Tailored chemical solutions engineered specifically for Textile, Paper, Wood Panel, Water Treatment, and Pharmaceutical manufacturing.
           </p>
         </div>
