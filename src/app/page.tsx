@@ -33,6 +33,11 @@ const CUTOUT_CARD_IMAGES = [
   "/card_paper_chemicals.png",
 ];
 
+const INDUSTRIES_PREVIEW = Object.values(INDUSTRIES_DATA).map((ind) => ({
+  ...ind,
+  stats: ind.tagline,
+}));
+
 export default function HomePage() {
   const [selectedProductIndex, setSelectedProductIndex] = useState(0);
   const getIndustryIcon = (iconName: string) => {
@@ -58,106 +63,105 @@ export default function HomePage() {
       <HeroSliderBanner />
 
       {/* 2. TRUST STRIP */}
-      <AnimatedSection type="reveal">
-        <TrustStrip />
-      </AnimatedSection>
+      <TrustStrip />
 
       {/* 3. INFINITE MARQUEE */}
       <InfiniteMarquee />
 
       {/* 4. WHAT WE DO OVERVIEW / MANUFACTURERS OF DYES, CHEMICALS & INDUSTRIAL INGREDIENTS */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <BlurText
-            text="Core Capabilities"
-            className="text-[#198754] font-bold text-xs uppercase tracking-widest"
-          />
-          <BlurText
-            text="Manufacturers of Dyes, Chemicals & Industrial Ingredients"
-            className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-montserrat"
-            delayMs={150}
-          />
-          <BlurText
-            text="We manufacture and supply high-quality dyes, pigments, specialty chemicals and industrial ingredients that meet global standards and cater to diverse industrial applications."
-            className="text-slate-600 text-base leading-relaxed"
-            delayMs={250}
-          />
-        </div>
-
-        {/* Interactive Product Index & Card Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full max-w-full overflow-hidden">
-          {/* Interactive Proximity LineSidebar Navigation */}
-          <div className="lg:col-span-4 bg-white p-5 sm:p-8 rounded-2xl border border-slate-200 shadow-md lg:sticky lg:top-24 w-full overflow-hidden">
-            <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-[#198754]">
-                Interactive Product Index
-              </h3>
-              <span className="text-[10px] font-semibold bg-emerald-50 text-[#198754] px-2 py-0.5 rounded-full border border-emerald-200">
-                Click to view
-              </span>
-            </div>
-            <LineSidebar
-              items={PRODUCTS_DATA.map((p) => p.title)}
-              accentColor="#198754"
-              textColor="#475569"
-              markerColor="#94a3b8"
-              maxShift={20}
-              itemGap={16}
-              fontSize={0.95}
-              proximityRadius={100}
-              defaultActive={selectedProductIndex}
-              onItemClick={(idx) => setSelectedProductIndex(idx)}
+      <section className="py-20 bg-[#012B37] text-white border-y border-[#2084A0]/30 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+            <BlurText
+              text="Core Capabilities"
+              className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
+            />
+            <BlurText
+              text="Manufacturers of Dyes, Chemicals & Industrial Ingredients"
+              className="text-3xl sm:text-4xl font-extrabold text-white font-montserrat"
+              delayMs={150}
+            />
+            <BlurText
+              text="We manufacture and supply high-quality dyes, pigments, specialty chemicals and industrial ingredients that meet global standards and cater to diverse industrial applications."
+              className="text-slate-200 text-base leading-relaxed"
+              delayMs={250}
             />
           </div>
 
-          {/* Selected Product Card Showcase */}
-          <div className="lg:col-span-8">
-            <AnimatedSection key={selectedProductIndex} type="reveal" className="h-full">
-              <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-2 sm:p-4 shadow-xl border border-slate-800">
-                <ProductCutoutCard
-                  badge={PRODUCTS_DATA[selectedProductIndex].badge}
-                  pinText={
-                    selectedProductIndex === 0
-                      ? "Top Seller"
-                      : selectedProductIndex === 1
-                      ? "ISO Certified"
-                      : "Export Ready"
-                  }
-                  title={PRODUCTS_DATA[selectedProductIndex].title}
-                  description={PRODUCTS_DATA[selectedProductIndex].desc}
-                  specs={PRODUCTS_DATA[selectedProductIndex].specs}
-                  imageSrc={CUTOUT_CARD_IMAGES[selectedProductIndex % CUTOUT_CARD_IMAGES.length]}
-                  detailsLink="/products"
-                />
+          {/* Interactive Product Index & Card Display */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full max-w-full overflow-hidden">
+            {/* Interactive Proximity LineSidebar Navigation */}
+            <div className="lg:col-span-4 bg-[#033645] p-5 sm:p-8 rounded-2xl border border-[#2084A0] shadow-xl lg:sticky lg:top-24 w-full overflow-hidden">
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#2084A0]/30">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-[#2084A0]">
+                  Interactive Product Index
+                </h3>
+                <span className="text-[10px] font-semibold bg-[#02252F] text-[#2084A0] px-2 py-0.5 rounded-full border border-[#2084A0]/40">
+                  Click to view
+                </span>
               </div>
-            </AnimatedSection>
+              <LineSidebar
+                items={PRODUCTS_DATA.map((p) => p.title)}
+                showIndex={false}
+                accentColor="#2084A0"
+                textColor="#FFFFFF"
+                markerColor="rgba(32, 132, 160, 0.5)"
+                maxShift={20}
+                itemGap={16}
+                fontSize={0.95}
+                proximityRadius={100}
+                defaultActive={selectedProductIndex}
+                onItemClick={(idx) => setSelectedProductIndex(idx)}
+              />
+            </div>
 
-            {/* Quick Grid Thumbnails of Other Products */}
-            <div className="mt-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-                All Products ({PRODUCTS_DATA.length})
-              </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {PRODUCTS_DATA.map((prod, idx) => (
-                  <button
-                    key={prod.id}
-                    onClick={() => setSelectedProductIndex(idx)}
-                    className={`text-left p-3 rounded-xl border transition-all text-xs ${
-                      selectedProductIndex === idx
-                        ? "bg-[#198754] text-white border-[#198754] shadow-md font-semibold"
-                        : "bg-white text-slate-700 border-slate-200 hover:border-[#198754] hover:bg-slate-50"
-                    }`}
-                  >
-                    <div className="font-bold truncate">{prod.title}</div>
-                    <div
-                      className={`text-[10px] truncate mt-0.5 ${
-                        selectedProductIndex === idx ? "text-emerald-100" : "text-slate-500"
-                      }`}
+            {/* Selected Product Card Showcase */}
+            <div className="lg:col-span-8">
+              <AnimatedSection key={selectedProductIndex} type="reveal" className="h-full">
+                <div className="bg-[#033645] rounded-2xl p-2 sm:p-4 shadow-xl border border-[#2084A0]">
+                  <ProductCutoutCard
+                    badge={PRODUCTS_DATA[selectedProductIndex].badge}
+                    pinText={
+                      selectedProductIndex === 0
+                        ? "Top Seller"
+                        : selectedProductIndex === 1
+                          ? "ISO Certified"
+                          : "Export Ready"
+                    }
+                    title={PRODUCTS_DATA[selectedProductIndex].title}
+                    description={PRODUCTS_DATA[selectedProductIndex].desc}
+                    specs={PRODUCTS_DATA[selectedProductIndex].specs}
+                    imageSrc={CUTOUT_CARD_IMAGES[selectedProductIndex % CUTOUT_CARD_IMAGES.length]}
+                    detailsLink="/products"
+                  />
+                </div>
+              </AnimatedSection>
+
+              {/* Quick Grid Thumbnails of Other Products */}
+              <div className="mt-6">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#2084A0] mb-3">
+                  All Products ({PRODUCTS_DATA.length})
+                </h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {PRODUCTS_DATA.map((prod, idx) => (
+                    <button
+                      key={prod.id}
+                      onClick={() => setSelectedProductIndex(idx)}
+                      className={`text-left p-3 rounded-xl border transition-all text-xs ${selectedProductIndex === idx
+                        ? "bg-[#2084A0] text-white border-[#2084A0] shadow-md font-semibold"
+                        : "bg-[#033645] text-white border-[#2084A0]/40 hover:border-[#2084A0] hover:bg-[#02252F]"
+                        }`}
                     >
-                      {prod.badge}
-                    </div>
-                  </button>
-                ))}
+                      <div className="font-bold truncate">{prod.title}</div>
+                      <div
+                        className={`text-[10px] truncate mt-0.5 ${selectedProductIndex === idx ? "text-slate-100" : "text-[#2084A0]"
+                          }`}
+                      >
+                        {prod.badge}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -165,12 +169,15 @@ export default function HomePage() {
       </section>
 
       {/* 5. INDUSTRIES WE SERVE - SILKY SMOOTH GPU-ACCELERATED STICKY CARDS */}
-      <section className="py-20 bg-slate-900 text-white border-y border-slate-800 relative">
+      <section
+        style={{ backgroundColor: "var(--bg-main)", borderColor: "var(--brand-border)" }}
+        className="py-20 text-white border-y border-opacity-30 relative"
+      >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
             <BlurText
               text="Industry Focus"
-              className="text-[#4ade80] font-bold text-xs uppercase tracking-widest"
+              className="text-[var(--brand-border)] font-bold text-xs uppercase tracking-widest"
             />
             <BlurText
               text="Industries We Serve"
@@ -178,65 +185,48 @@ export default function HomePage() {
               delayMs={150}
             />
             <BlurText
-              text="Scroll down to explore our chemistry formulations across dedicated industrial sectors."
-              className="text-slate-400 text-base"
-              delayMs={250}
+              text="Custom formulated dye and specialty chemical solutions tailored to demanding industrial requirements."
+              className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto"
+              delayMs={300}
             />
           </div>
 
-          <div className="space-y-6 pb-12">
-            {Object.values(INDUSTRIES_DATA).map((ind, idx) => (
+          {/* Sticky Stacking Cards Container */}
+          <div className="space-y-6 sm:space-y-8 relative">
+            {INDUSTRIES_PREVIEW.map((industry, index) => (
               <div
-                key={ind.id}
-                className="sticky bg-white text-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 transition-all duration-300"
+                key={industry.id}
                 style={{
-                  top: `calc(90px + ${idx * 24}px)`,
-                  zIndex: idx + 1,
+                  top: `calc(100px + ${index * 32}px)`,
+                  backgroundColor: "var(--bg-top-highlight)",
+                  borderColor: "var(--brand-border)",
                 }}
+                className="sticky rounded-3xl p-6 sm:p-10 border shadow-2xl transition-all duration-300 group hover:scale-[1.01]"
               >
-                <div className="space-y-4 max-w-xl">
-                  <div className="flex items-center space-x-3">
-                    <div
-                      className="p-3.5 rounded-2xl bg-slate-100 border border-slate-200"
-                      style={{ color: ind.accentColor }}
-                    >
-                      {getIndustryIcon(ind.iconName)}
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Sector 0{idx + 1}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat">
-                      {ind.name}
-                    </h3>
-                    <p className="text-sm font-semibold text-[#198754] mt-1">
-                      {ind.tagline}
-                    </p>
-                  </div>
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    {ind.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {ind.solutions.slice(0, 3).map((sol, i) => (
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div className="lg:col-span-7 space-y-4">
+                    <div className="flex items-center space-x-3">
                       <span
-                        key={i}
-                        className="text-xs font-medium px-3 py-1 bg-slate-100 text-slate-700 rounded-full border border-slate-200"
+                        style={{ backgroundColor: "var(--bg-darker-right)", borderColor: "var(--brand-border)" }}
+                        className="px-3 py-1 rounded-full text-xs font-bold text-[var(--brand-border)] border uppercase tracking-wider"
                       >
-                        ✓ {sol.title}
+                        {industry.stats}
                       </span>
-                    ))}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white font-montserrat">
+                      {industry.name} Industry
+                    </h3>
+                    <p className="text-slate-300 text-sm leading-relaxed">
+                      {industry.description}
+                    </p>
+                    <Link
+                      href={`/industries/${industry.slug}`}
+                      className="inline-flex items-center space-x-2 text-sm font-bold text-[var(--brand-border)] group-hover:text-white transition-colors"
+                    >
+                      <span>Explore {industry.name}</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
-                </div>
-
-                <div className="w-full md:w-auto flex flex-col items-stretch md:items-end gap-4 border-t md:border-t-0 border-slate-100 pt-4 md:pt-0">
-                  <Link
-                    href={`/industries/${ind.slug}`}
-                    className="px-6 py-3 rounded-xl bg-[#198754] hover:bg-[#146c43] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2 group whitespace-nowrap"
-                  >
-                    <span>Explore {ind.name} Solutions</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
                 </div>
               </div>
             ))}
@@ -244,20 +234,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. CORPORATE HIGHLIGHT & PILLARS OF EXCELLENCE (From reference) */}
-      <section className="py-20 bg-white border-y border-slate-200 px-4 sm:px-6 lg:px-8">
+      {/* 5. CORPORATE HIGHLIGHT & PILLARS OF EXCELLENCE */}
+      <section className="py-20 bg-[#02252F] text-white border-y border-[#2084A0]/30 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Dual Image Showcase */}
             <div className="lg:col-span-6 relative grid grid-cols-12 gap-4">
-              <div className="col-span-7 h-[340px] rounded-2xl overflow-hidden border border-slate-200 shadow-lg relative">
+              <div className="col-span-7 h-[340px] rounded-2xl overflow-hidden border border-[#2084A0] shadow-lg relative">
                 <img
                   src="/blue_chemical_drums.png"
                   alt="Industrial Chemical Inventory"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="col-span-5 h-[260px] self-end rounded-2xl overflow-hidden border border-slate-200 shadow-xl relative -ml-6 -mb-4 z-10 bg-white p-2">
+              <div className="col-span-5 h-[260px] self-end rounded-2xl overflow-hidden border border-[#2084A0] shadow-xl relative -ml-6 -mb-4 z-10 bg-[#033645] p-2">
                 <img
                   src="/r_and_d_chemist_lab.png"
                   alt="Quality Control Scientist"
@@ -270,45 +260,45 @@ export default function HomePage() {
             <div className="lg:col-span-6 space-y-6">
               <BlurText
                 text="Welcome to Chemfarm International"
-                className="text-[#198754] font-bold text-xs uppercase tracking-widest"
+                className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
               />
               <BlurText
                 text="Engineered Specialty Chemicals Delivering High Performance & Reliability"
-                className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-montserrat leading-tight"
+                className="text-3xl sm:text-4xl font-extrabold text-white font-montserrat leading-tight"
                 delayMs={150}
               />
-              <p className="text-slate-600 text-base leading-relaxed">
+              <p className="text-slate-300 text-base leading-relaxed">
                 As a leading manufacturer of dyes, pigments, and specialty formulations, we partner with industry leaders to formulate solutions tailored to stringent operational demands.
               </p>
 
               <div className="space-y-4 pt-2">
-                <div className="flex items-start space-x-4 p-3 rounded-lg hover:bg-slate-50 transition-colors">
-                  <div className="p-2 rounded-full bg-emerald-100 text-[#198754]">
+                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-[#2084A0]/40 transition-colors">
+                  <div className="p-2 rounded-full bg-[#02252F] text-[#2084A0] border border-[#2084A0]/40">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Outstanding Performance</h4>
-                    <p className="text-xs text-slate-600">Formulated for maximum color strength, thermal stability, and lightfastness.</p>
+                    <h4 className="text-sm font-bold text-white">Outstanding Performance</h4>
+                    <p className="text-xs text-slate-300">Formulated for maximum color strength, thermal stability, and lightfastness.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-3 rounded-lg hover:bg-slate-50 transition-colors">
-                  <div className="p-2 rounded-full bg-sky-100 text-[#0077B6]">
+                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-[#2084A0]/40 transition-colors">
+                  <div className="p-2 rounded-full bg-[#02252F] text-[#2084A0] border border-[#2084A0]/40">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Driven By Innovation</h4>
-                    <p className="text-xs text-slate-600">Continuous R&D focused on eco-friendly, zero-discharge chemical synthesis.</p>
+                    <h4 className="text-sm font-bold text-white">Driven By Innovation</h4>
+                    <p className="text-xs text-slate-300">Continuous R&D focused on eco-friendly, zero-discharge chemical synthesis.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-3 rounded-lg hover:bg-slate-50 transition-colors">
-                  <div className="p-2 rounded-full bg-amber-100 text-[#B8860B]">
+                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-[#2084A0]/40 transition-colors">
+                  <div className="p-2 rounded-full bg-[#02252F] text-[#2084A0] border border-[#2084A0]/40">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Sustainable Solutions</h4>
-                    <p className="text-xs text-slate-600">Compliant with global REACH, ZDHC, and ISO standard regulations.</p>
+                    <h4 className="text-sm font-bold text-white">Sustainable Solutions</h4>
+                    <p className="text-xs text-slate-300">Compliant with global REACH, ZDHC, and ISO standard regulations.</p>
                   </div>
                 </div>
               </div>
@@ -318,7 +308,7 @@ export default function HomePage() {
       </section>
 
       {/* 6. THOUGHT LEADERSHIP & EXECUTIVE COMMITMENT (From reference) */}
-      <section className="py-20 bg-slate-900 text-white px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+      <section className="py-20 bg-[#012B37] text-white px-4 sm:px-6 lg:px-8 border-b border-slate-800">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
@@ -329,24 +319,6 @@ export default function HomePage() {
                 With over three decades of operational excellence, our executive leadership and technical team drive value across global supply chains through rigorous quality governance and custom shade matching.
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-slate-800">
-                <div>
-                  <div className="text-3xl font-extrabold text-[#4ade80] font-montserrat">40+</div>
-                  <div className="text-xs text-slate-400 mt-1">Global Export Destinations</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-extrabold text-amber-400 font-montserrat">25+</div>
-                  <div className="text-xs text-slate-400 mt-1">Years Average Client Tenure</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-extrabold text-[#0077B6] font-montserrat">30+</div>
-                  <div className="text-xs text-slate-400 mt-1">Technical Chemist Specialists</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-extrabold text-emerald-400 font-montserrat">4</div>
-                  <div className="text-xs text-slate-400 mt-1">Dedicated Manufacturing Hubs</div>
-                </div>
-              </div>
             </div>
 
             <div className="lg:col-span-5 relative">
@@ -363,66 +335,55 @@ export default function HomePage() {
       </section>
 
       {/* 7. CERTIFICATIONS & REGULATORY COMPLIANCE STRIP (From reference) */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200 px-4 sm:px-6 lg:px-8 text-center">
+      {/* 7. CERTIFICATIONS & REGULATORY COMPLIANCE STRIP */}
+      <section className="py-16 bg-[#02252F] border-b border-[#2084A0]/30 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#198754]">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#2084A0]">
             All formulations adhere to international standards and hold renowned certifications
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center space-y-2">
-              <ShieldCheck className="w-10 h-10 text-[#198754]" />
-              <h4 className="text-sm font-bold text-slate-900 font-montserrat">ISO 9001:2015</h4>
-              <p className="text-xs text-slate-500">Quality Management System</p>
+            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
+              <ShieldCheck className="w-10 h-10 text-[#2084A0]" />
+              <h4 className="text-sm font-bold text-white font-montserrat">ISO 9001:2015</h4>
+              <p className="text-xs text-slate-300">Quality Management System</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center space-y-2">
-              <Award className="w-10 h-10 text-[#0077B6]" />
-              <h4 className="text-sm font-bold text-slate-900 font-montserrat">REACH Compliant</h4>
-              <p className="text-xs text-slate-500">EU Chemical Safety Directives</p>
+            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
+              <Award className="w-10 h-10 text-[#2084A0]" />
+              <h4 className="text-sm font-bold text-white font-montserrat">REACH Compliant</h4>
+              <p className="text-xs text-slate-300">EU Chemical Safety Directives</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center space-y-2">
-              <Sparkles className="w-10 h-10 text-[#B8860B]" />
-              <h4 className="text-sm font-bold text-slate-900 font-montserrat">Ø ZDHC Level 3</h4>
-              <p className="text-xs text-slate-500">Zero Discharge Hazardous Chemicals</p>
+            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
+              <Sparkles className="w-10 h-10 text-[#2084A0]" />
+              <h4 className="text-sm font-bold text-white font-montserrat">Ø ZDHC Level 3</h4>
+              <p className="text-xs text-slate-300">Zero Discharge Hazardous Chemicals</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center space-y-2">
-              <CheckCircle2 className="w-10 h-10 text-emerald-600" />
-              <h4 className="text-sm font-bold text-slate-900 font-montserrat">OEKO-TEX ECO</h4>
-              <p className="text-xs text-slate-500">Sustainable Textile Standard</p>
+            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
+              <CheckCircle2 className="w-10 h-10 text-[#2084A0]" />
+              <h4 className="text-sm font-bold text-white font-montserrat">OEKO-TEX ECO</h4>
+              <p className="text-xs text-slate-300">Sustainable Textile Standard</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. MANUFACTURING & R&D EXCELLENCE SECTION (Matched to reference) */}
-      <section className="py-20 bg-slate-900 text-white relative overflow-hidden border-t border-slate-800">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#198754]/10 rounded-full blur-3xl pointer-events-none" />
+      {/* 8. MANUFACTURING & R&D EXCELLENCE SECTION */}
+      <section className="py-20 bg-[#012B37] text-white relative overflow-hidden border-t border-[#2084A0]/30">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#2084A0]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Image Column */}
             <div className="lg:col-span-6 relative">
               <AnimatedSection type="scale">
-                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-[#2084A0] shadow-2xl">
                   <img
-                    src="/manufacturing_facility.png"
-                    alt="Chemfarm Manufacturing Plant & Quality Lab"
-                    className="w-full h-full object-cover"
+                    src="/home/chemfar.jpg"
+                    alt="Chemfarm International Manufacturing Facility"
+                    className="w-full h-full object-cover brightness-115 contrast-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 bg-slate-900/85 backdrop-blur-md p-4 rounded-xl border border-slate-700/80">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2.5 bg-[#198754] text-white rounded-lg">
-                        <Award className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-bold text-white font-montserrat">State-of-the-Art Synthesis & Milling</p>
-                        <p className="text-xs text-slate-300">Automated reactor lines & precision spectrophotometer color testing</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </AnimatedSection>
             </div>
@@ -431,7 +392,7 @@ export default function HomePage() {
             <div className="lg:col-span-6 space-y-6">
               <BlurText
                 text="Manufacturing & Quality Control"
-                className="text-[#4ade80] font-bold text-xs uppercase tracking-widest"
+                className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
               />
               <BlurText
                 text="Precision Engineering from Raw Material to Final Shade"
@@ -445,20 +406,20 @@ export default function HomePage() {
               />
 
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/60">
-                  <h4 className="text-lg font-bold text-[#4ade80] font-montserrat">ISO 9001:2015</h4>
-                  <p className="text-xs text-slate-400 mt-1">Quality Management System</p>
+                <div className="p-4 rounded-xl bg-[#033645] border border-[#2084A0]">
+                  <h4 className="text-lg font-bold text-[#2084A0] font-montserrat">ISO 9001:2015</h4>
+                  <p className="text-xs text-slate-300 mt-1">Quality Management System</p>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/60">
-                  <h4 className="text-lg font-bold text-amber-400 font-montserrat">Eco-Compliant</h4>
-                  <p className="text-xs text-slate-400 mt-1">Sustainable Waste Neutralization</p>
+                <div className="p-4 rounded-xl bg-[#033645] border border-[#2084A0]">
+                  <h4 className="text-lg font-bold text-[#2084A0] font-montserrat">Eco-Compliant</h4>
+                  <p className="text-xs text-slate-300 mt-1">Sustainable Waste Neutralization</p>
                 </div>
               </div>
 
               <div className="pt-4 flex items-center space-x-4">
                 <Link
                   href="/quality"
-                  className="px-6 py-3 rounded-full bg-[#198754] hover:bg-[#146c43] text-white text-sm font-semibold shadow-lg transition-all flex items-center space-x-2"
+                  className="px-6 py-3 rounded-full bg-[#2084A0] hover:bg-[#033645] text-white text-sm font-semibold shadow-lg transition-all flex items-center space-x-2 border border-[#2084A0]"
                 >
                   <span>Explore Quality Process</span>
                   <ArrowRight className="w-4 h-4" />
@@ -467,7 +428,7 @@ export default function HomePage() {
                   href="/catalogue.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-sm font-semibold transition-all"
+                  className="px-6 py-3 rounded-full bg-[#033645] hover:bg-[#02252F] border border-[#2084A0] text-white text-sm font-semibold transition-all"
                 >
                   Download Catalogue (PDF)
                 </a>
@@ -477,17 +438,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. INTERACTIVE TESTIMONIAL CAROUSEL */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200 px-4 sm:px-6 lg:px-8">
+
+
+      {/* 9. INTERACTIVE TESTIMONIAL CAROUSEL */}
+      <section className="py-20 bg-[#02252F] border-t border-[#2084A0]/30 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="text-center space-y-2">
             <BlurText
               text="Client Feedback"
-              className="text-[#198754] font-bold text-xs uppercase tracking-widest"
+              className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
             />
             <BlurText
               text="Trusted by Industry Leaders"
-              className="text-3xl font-bold text-slate-900 font-montserrat"
+              className="text-3xl font-bold text-white font-montserrat"
               delayMs={150}
             />
           </div>
@@ -496,17 +459,61 @@ export default function HomePage() {
           </AnimatedSection>
         </div>
       </section>
+      {/* 8. FIND US LOCATION MAP SECTION */}
+      <section className="py-20 bg-[#012B37] text-white border-t border-[#2084A0]/30 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-8 text-center">
+          <div className="inline-block bg-[#033645] border border-[#2084A0] text-white px-8 py-2.5 rounded-full shadow-lg">
+            <span className="font-serif italic text-lg sm:text-xl font-medium tracking-wide">Find Us</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-serif  text-white tracking-tight">
+            Chemfarm International
+          </h2>
 
-      {/* 9. FLOATING QUICK CONTACT / WHATSAPP ACTION BUTTON (Ref Screenshot Feature) */}
+          <div className="relative rounded-3xl overflow-hidden border-2 border-[#2084A0] shadow-2xl bg-[#033645] max-w-4xl mx-auto">
+            <iframe
+              title="Chemfarm International Location Map"
+              src="https://maps.google.com/maps?q=28.4724529,77.0548273&hl=en&z=14&output=embed"
+              className="w-full h-[360px] sm:h-[420px] border-0"
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+            <div className="absolute bottom-5 right-5 z-10">
+              <a
+                href="https://www.google.com/maps/dir/28.6039544,77.0905357/Chemfarm+International,+7th+floor,+DLF,+Palm+Court,+704,+Mehrauli-Gurgaon+Rd,+Industrial+Development+Area,+Sector+16,+Gurugram,+Haryana+122007/@28.5365113,77.0035152,12z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x390d193da2150af3:0x4ee6ad974398ab3f!2m2!1d77.0548273!2d28.4724529!3e9?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2.5 rounded-full bg-[#012B37]/90 hover:bg-[#033645] border border-[#2084A0] text-white font-serif italic text-sm font-bold tracking-wider uppercase shadow-xl backdrop-blur-md transition-all flex items-center space-x-2"
+              >
+                <span>GET DIRECTIONS</span>
+                <ArrowRight className="w-4 h-4 text-[#2084A0]" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FLOATING ACTION: OFFICIAL WHATSAPP BUTTON */}
+      <FloatingWhatsApp />
+    </div>
+  );
+}
+
+function FloatingWhatsApp() {
+  return (
+    <div className="fixed bottom-6 right-6 z-50">
+      {/* Official WhatsApp Action Button */}
       <a
         href="https://wa.me/918800642621?text=Hi%20Chemfarm%20Team,%20I%20would%20like%20to%20inquire%20about%20your%20products."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 p-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center group"
+        className="p-3.5 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center group cursor-pointer"
       >
-        <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l.999 1.595-1.052 3.847 3.948-1.035 1.598.999z" />
+        {/* Official WhatsApp SVG Icon */}
+        <svg className="w-7 h-7 fill-current text-white" viewBox="0 0 448 512">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18.1-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
         </svg>
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap text-xs font-bold pl-0 group-hover:pl-2">
           Chat with Us

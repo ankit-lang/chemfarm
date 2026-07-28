@@ -231,7 +231,11 @@ export default function ContactPage() {
                 <Phone className="w-5 h-5 text-[#198754] flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="block text-slate-900 font-semibold">Phone Support</strong>
-                  <a href="tel:+918800642621" className="hover:text-[#198754] transition-colors">+91 8800642621</a>
+                  <p className="space-x-2">
+                    <a href="tel:+918800642621" className="hover:text-[#198754] transition-colors">+91 8800642621</a>
+                    <span>,</span>
+                    <a href="tel:+919871450429" className="hover:text-[#198754] transition-colors">+91 9871450429</a>
+                  </p>
                 </div>
               </div>
 
@@ -239,7 +243,7 @@ export default function ContactPage() {
                 <Mail className="w-5 h-5 text-[#0077B6] flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="block text-slate-900 font-semibold">Email Enquiries</strong>
-                  <a href="mailto:sales@chemfarminternational.com" className="hover:text-[#198754] transition-colors">sales@chemfarminternational.com</a>
+                  <a href="mailto:sales@chemfarm-international.com" className="hover:text-[#198754] transition-colors">sales@chemfarm-international.com</a>
                 </div>
               </div>
 

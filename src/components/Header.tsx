@@ -54,11 +54,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
       {/* Top Banner Bar */}
-      <div className="bg-white text-slate-600 text-xs py-2 px-4 border-b border-slate-200 hidden md:block">
+      <div className="bg-slate-50 text-slate-600 text-xs py-2 px-4 border-b border-slate-200 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
-            <span className="flex items-center space-x-1.5 text-slate-700 font-medium">
-              <span className="w-2 h-2 rounded-full bg-[#198754] animate-pulse"></span>
+            <span className="flex items-center space-x-1.5 text-slate-800 font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#2084A0] animate-pulse"></span>
               <span>Est. 1992 | Pan-India & Global Export Supplier</span>
             </span>
             <span className="text-slate-300">|</span>
@@ -68,17 +68,24 @@ export default function Header() {
           </div>
           <div className="flex items-center space-x-4">
             <a
-              href="mailto:sales@chemfarminternational.com"
-              className="hover:text-[#198754] transition-colors"
+              href="mailto:sales@chemfarm-international.com"
+              className="hover:text-[#2084A0] transition-colors"
             >
-              sales@chemfarminternational.com
+              sales@chemfarm-international.com
             </a>
             <span className="text-slate-300">|</span>
             <a
               href="tel:+918800642621"
-              className="hover:text-[#198754] font-medium transition-colors"
+              className="hover:text-[#2084A0] font-medium transition-colors"
             >
               +91 8800642621
+            </a>
+            <span className="text-slate-300">,</span>
+            <a
+              href="tel:+919871450429"
+              className="hover:text-[#2084A0] font-medium transition-colors"
+            >
+              +91 9871450429
             </a>
           </div>
         </div>
@@ -91,14 +98,12 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative h-12 w-auto flex items-center justify-center p-2 bg-whiteshadow-sm group-hover:scale-105 transition-transform duration-300">
-              <img
-                src="/logo/logo.png"
-                alt="Chemfarm International Logo"
-                className="h-9 w-auto object-contain"
-              />
-            </div>
+          <Link href="/" className="flex items-center group py-1">
+            <img
+              src="/logo/logo.png"
+              alt="Chemfarm International Logo"
+              className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+            />
           </Link>
 
           {/* Desktop Nav Links */}
@@ -106,8 +111,8 @@ export default function Header() {
             <Link
               href="/"
               className={`text-sm font-medium transition-colors ${pathname === "/"
-                  ? "text-[#198754] font-semibold"
-                  : "text-slate-700 hover:text-[#198754]"
+                  ? "text-[#2084A0] font-semibold"
+                  : "text-slate-700 hover:text-[#2084A0]"
                 }`}
             >
               Home
@@ -116,8 +121,8 @@ export default function Header() {
             <Link
               href="/about"
               className={`text-sm font-medium transition-colors ${pathname === "/about"
-                  ? "text-[#198754] font-semibold"
-                  : "text-slate-700 hover:text-[#198754]"
+                  ? "text-[#2084A0] font-semibold"
+                  : "text-slate-700 hover:text-[#2084A0]"
                 }`}
             >
               About Us
@@ -132,8 +137,8 @@ export default function Header() {
               <Link
                 href="/products"
                 className={`text-sm font-medium transition-colors flex items-center space-x-1 ${pathname?.startsWith("/products")
-                    ? "text-[#198754] font-semibold"
-                    : "text-slate-700 hover:text-[#198754]"
+                    ? "text-[#2084A0] font-semibold"
+                    : "text-slate-700 hover:text-[#2084A0]"
                   }`}
               >
                 <span>Products</span>
@@ -145,43 +150,43 @@ export default function Header() {
                   <div className="bg-white border border-slate-200 rounded-xl shadow-xl p-2 backdrop-blur-xl">
                     <Link
                       href="/products"
-                      className="block px-3 py-2 text-xs font-bold uppercase tracking-wider text-[#198754] border-b border-slate-100 mb-1 hover:bg-emerald-50 rounded-md"
+                      className="block px-3 py-2 text-xs font-bold uppercase tracking-wider text-[#2084A0] border-b border-slate-100 mb-1 hover:bg-slate-50 rounded-md"
                     >
                       All Product Categories →
                     </Link>
                     <Link
                       href="/products#dyes"
-                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-[#198754] rounded-lg transition-colors"
+                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#2084A0] rounded-lg transition-colors"
                     >
                       Dyes
                     </Link>
                     <Link
                       href="/products#pigments"
-                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-[#198754] rounded-lg transition-colors"
+                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#2084A0] rounded-lg transition-colors"
                     >
                       Pigments
                     </Link>
                     <Link
                       href="/products#specialty-chemicals"
-                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-[#198754] rounded-lg transition-colors"
+                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#2084A0] rounded-lg transition-colors"
                     >
                       Specialty Chemicals
                     </Link>
                     <Link
                       href="/products#industrial-ingredients"
-                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-[#198754] rounded-lg transition-colors"
+                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#2084A0] rounded-lg transition-colors"
                     >
                       Industrial Ingredients
                     </Link>
                     <Link
                       href="/products#paper-chemicals"
-                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-[#198754] rounded-lg transition-colors"
+                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#2084A0] rounded-lg transition-colors"
                     >
                       Paper Chemicals
                     </Link>
                     <Link
                       href="/products#textile-chemicals"
-                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-[#198754] rounded-lg transition-colors"
+                      className="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#2084A0] rounded-lg transition-colors"
                     >
                       Textile Chemicals
                     </Link>
@@ -199,8 +204,8 @@ export default function Header() {
               <Link
                 href="/industries"
                 className={`text-sm font-medium transition-colors flex items-center space-x-1 ${pathname?.startsWith("/industries")
-                    ? "text-[#198754] font-semibold"
-                    : "text-slate-700 hover:text-[#198754]"
+                    ? "text-[#2084A0] font-semibold"
+                    : "text-slate-700 hover:text-[#2084A0]"
                   }`}
               >
                 <span>Industries We Serve</span>
@@ -212,7 +217,7 @@ export default function Header() {
                   <div className="bg-white border border-slate-200 rounded-xl shadow-xl p-2 backdrop-blur-xl space-y-1">
                     <Link
                       href="/industries"
-                      className="block px-3 py-2 text-xs font-bold uppercase tracking-wider text-[#198754] border-b border-slate-100 mb-1 hover:bg-emerald-50 rounded-md"
+                      className="block px-3 py-2 text-xs font-bold uppercase tracking-wider text-[#2084A0] border-b border-slate-100 mb-1 hover:bg-slate-50 rounded-md"
                     >
                       Industries Overview →
                     </Link>
@@ -222,11 +227,11 @@ export default function Header() {
                         href={`/industries/${ind.slug}`}
                         className="flex items-start space-x-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group/item"
                       >
-                        <div className="p-2 rounded-md bg-slate-100 border border-slate-200 group-hover/item:border-[#198754]/40">
+                        <div className="p-2 rounded-md bg-slate-100 border border-slate-200 group-hover/item:border-[#2084A0]">
                           {getIndustryIcon(ind.iconName)}
                         </div>
                         <div>
-                          <p className="text-sm font-semibold text-slate-900 group-hover/item:text-[#198754] transition-colors">
+                          <p className="text-sm font-semibold text-slate-900 group-hover/item:text-[#2084A0] transition-colors">
                             {ind.name} Industry
                           </p>
                           <p className="text-xs text-slate-500 line-clamp-1">
@@ -243,8 +248,8 @@ export default function Header() {
             <Link
               href="/quality"
               className={`text-sm font-medium transition-colors ${pathname === "/quality"
-                  ? "text-[#198754] font-semibold"
-                  : "text-slate-700 hover:text-[#198754]"
+                  ? "text-[#2084A0] font-semibold"
+                  : "text-slate-700 hover:text-[#2084A0]"
                 }`}
             >
               Quality
@@ -254,7 +259,7 @@ export default function Header() {
               href="/catalogue.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-700 hover:text-[#198754] transition-colors"
+              className="text-sm font-medium text-slate-700 hover:text-[#2084A0] transition-colors"
             >
               Catalogue
             </a>
@@ -262,8 +267,8 @@ export default function Header() {
             <Link
               href="/contact"
               className={`text-sm font-medium transition-colors ${pathname === "/contact"
-                  ? "text-[#198754] font-semibold"
-                  : "text-slate-700 hover:text-[#198754]"
+                  ? "text-[#2084A0] font-semibold"
+                  : "text-slate-700 hover:text-[#2084A0]"
                 }`}
             >
               Contact Us
@@ -274,16 +279,16 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               href="/products"
-              className="p-2 text-slate-600 hover:text-[#198754] transition-colors"
+              className="p-2 text-slate-600 hover:text-[#2084A0] transition-colors"
               title="Search Dyes & Chemicals"
             >
               <Search className="w-5 h-5" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-[#198754] hover:bg-[#146c43] shadow-md shadow-emerald-700/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-[#2084A0] hover:bg-[#033645] border border-[#2084A0] shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span>Request a Quote</span>
+              <span>Contact Us</span>
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
@@ -294,7 +299,7 @@ export default function Header() {
               href="/contact"
               className="px-3 py-1.5 rounded-md text-xs font-semibold text-white bg-[#198754]"
             >
-              Quote
+              Contact
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

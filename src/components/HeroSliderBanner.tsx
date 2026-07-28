@@ -105,92 +105,81 @@ export default function HeroSliderBanner() {
       {SLIDES.map((slide, idx) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === currentIndex ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentIndex ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
+            }`}
         >
-          {/* Background Image with Dark Vignette & Gradient Overlays */}
+          {/* Background Image - Bright and without heavy dark gradients */}
           <div className="relative w-full h-full">
             <Image
               src={slide.imageSrc}
               alt={slide.titlePrimary}
               fill
               priority={idx === 0}
-              className="object-cover object-center scale-105 transition-transform duration-10000 ease-out"
+              className="object-cover object-center scale-105 transition-transform duration-10000 ease-out brightness-110 contrast-105"
             />
-            {/* Deep gradient overlay inspired by reference screenshot */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-[#198754]/10 blur-3xl rounded-full pointer-events-none" />
           </div>
 
-          {/* Slide Content Container */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          {/* Slide Content Container with Lighter Aligned Glassmorphism Card */}
+          <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-              <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left space-y-4 sm:space-y-6">
-                {/* Gold Pill Badge */}
-                <div className="inline-flex items-center space-x-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-[10px] sm:text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
-                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
-                  <span>{slide.badge}</span>
-                </div>
-
-                {/* Main Heading with Serif Accent */}
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-montserrat leading-[1.15]">
+              <div className="max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#012B37]/35 backdrop-blur-md border border-white/20 shadow-2xl space-y-5 text-left">
+                {/* Main Heading */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-montserrat leading-[1.15] text-white drop-shadow-lg">
                   {slide.titlePrimary}{" "}
-                  <span className="font-serif italic font-normal text-[#4ade80] block sm:inline drop-shadow-sm">
+                  <span className="font-serif italic font-normal text-[#2084A0] block sm:inline drop-shadow-lg">
                     {slide.titleSecondary}
                   </span>
                 </h1>
 
                 {/* Description */}
-                <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
+                <p className="text-xs sm:text-base lg:text-lg text-white leading-relaxed max-w-xl font-normal drop-shadow-md">
                   {slide.description}
                 </p>
 
-                {/* Action Buttons */}
-                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
-                  <Link href={slide.primaryCtaLink} className="w-full sm:w-auto">
+                {/* Action Buttons Aligned */}
+                <div className="pt-1 flex flex-row items-center justify-start gap-4">
+                  <Link href={slide.primaryCtaLink}>
                     <SpecularButton
                       size="md"
-                      tint="#198754"
+                      tint="#2084A0"
                       tintOpacity={1}
-                      lineColor="#4ade80"
-                      baseColor="#146c43"
+                      lineColor="#2084A0"
+                      baseColor="#033645"
                       textColor="#ffffff"
                       radius={999}
                       autoAnimate
-                      className="w-full sm:w-auto font-semibold"
+                      className="font-semibold shadow-lg"
                     >
                       <span>{slide.primaryCtaText}</span>
                       <ArrowRight className="w-4 h-4" />
                     </SpecularButton>
                   </Link>
 
-                  <Link href={slide.secondaryCtaLink} className="w-full sm:w-auto">
+                  <Link href={slide.secondaryCtaLink}>
                     <SpecularButton
                       size="md"
                       tint="#ffffff"
-                      tintOpacity={0.12}
-                      blur={8}
-                      lineColor="#f59e0b"
-                      baseColor="#334155"
+                      tintOpacity={0.2}
+                      blur={12}
+                      lineColor="#2084A0"
+                      baseColor="#02252F"
                       textColor="#ffffff"
                       radius={999}
                       autoAnimate
-                      className="w-full sm:w-auto font-semibold"
+                      className="font-semibold border border-white/30 shadow-lg"
                     >
                       <span>{slide.secondaryCtaText}</span>
-                      <MessageSquare className="w-4 h-4 text-amber-300" />
+                      <MessageSquare className="w-4 h-4 text-[#2084A0]" />
                     </SpecularButton>
                   </Link>
                 </div>
 
-                {/* Quick Stats Row */}
-                <div className="pt-4 sm:pt-6 border-t border-white/15 grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto lg:mx-0">
+                {/* Quick Stats Row Aligned */}
+                <div className="pt-5 border-t border-white/20 grid grid-cols-3 gap-4 max-w-lg">
                   {slide.stats.map((stat, sIdx) => (
-                    <div key={sIdx} className="text-center lg:text-left">
-                      <div className="text-lg sm:text-2xl font-bold font-montserrat text-white">{stat.value}</div>
-                      <div className="text-[10px] sm:text-xs text-slate-400 font-medium">{stat.label}</div>
+                    <div key={sIdx} className="text-left">
+                      <div className="text-lg sm:text-2xl font-bold font-montserrat text-white drop-shadow-md">{stat.value}</div>
+                      <div className="text-[10px] sm:text-xs text-slate-100 font-medium drop-shadow-sm">{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -200,40 +189,39 @@ export default function HeroSliderBanner() {
         </div>
       ))}
 
-      {/* Navigation Arrows (Hidden or minimized on smaller mobile screens to avoid text overlap) */}
+      {/* Navigation Arrows */}
       <button
         onClick={handlePrev}
         aria-label="Previous Slide"
-        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-slate-900/60 hover:bg-white/25 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
+        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#02252F]/70 hover:bg-[#033645] border border-[#2084A0]/50 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
       >
-        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-[#2084A0]" />
       </button>
 
       <button
         onClick={handleNext}
         aria-label="Next Slide"
-        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-slate-900/60 hover:bg-white/25 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
+        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#02252F]/70 hover:bg-[#033645] border border-[#2084A0]/50 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
       >
-        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
+        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-[#2084A0]" />
       </button>
 
       {/* Slide Indicators & Counter */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3 bg-slate-900/60 px-4 py-2 rounded-full border border-white/10 backdrop-blur-md">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3 bg-[#02252F]/80 px-4 py-2 rounded-full border border-[#2084A0]/40 backdrop-blur-md">
         {SLIDES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
             aria-label={`Go to slide ${idx + 1}`}
-            className={`h-2.5 rounded-full transition-all duration-300 ${
-              idx === currentIndex ? "w-8 bg-[#4ade80]" : "w-2.5 bg-white/40 hover:bg-white/70"
-            }`}
+            className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex ? "w-8 bg-[#2084A0]" : "w-2.5 bg-white/40 hover:bg-white/70"
+              }`}
           />
         ))}
       </div>
 
       {/* Slide Counter Label (Bottom Right) */}
-      <div className="absolute bottom-8 right-6 sm:right-10 z-20 hidden sm:flex items-center space-x-2 text-xs font-mono text-slate-400 bg-slate-900/60 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
-        <span className="text-[#4ade80] font-bold">0{currentIndex + 1}</span>
+      <div className="absolute bottom-8 right-6 sm:right-10 z-20 hidden sm:flex items-center space-x-2 text-xs font-mono text-slate-300 bg-[#02252F]/80 px-3 py-1.5 rounded-full border border-[#2084A0]/40 backdrop-blur-md">
+        <span className="text-[#2084A0] font-bold">0{currentIndex + 1}</span>
         <span>/</span>
         <span>0{SLIDES.length}</span>
       </div>

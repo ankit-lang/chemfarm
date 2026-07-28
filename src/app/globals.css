@@ -2,24 +2,56 @@
 
 @layer base {
   :root {
-    --brand-green: #198754;
-    --brand-green-hover: #146c43;
-    --charcoal: #333333;
-    --secondary-grey: #808080;
-    --icon-blue: #0077B6;
-    --icon-gold: #DAA520;
-    --icon-teal: #008080;
-    --icon-red: #CD5C5C;
-    --navy-dark: #070d1e;
-    --navy-card: #0e172c;
+    --bg-main: #012B37;
+    --bg-top-highlight: #033645;
+    --bg-darker-right: #02252F;
+    --brand-border: #2084A0;
+    --text-primary: #FFFFFF;
+
+    --brand-green: #2084A0;
+    --brand-green-hover: #033645;
+    --charcoal: #FFFFFF;
+    --secondary-grey: #94a3b8;
+    --icon-blue: #2084A0;
+    --icon-gold: #2084A0;
+    --icon-teal: #033645;
+    --icon-red: #02252F;
+    --navy-dark: #012B37;
+    --navy-card: #02252F;
+  }
+
+  /* Dynamic Theme Overrides */
+  .theme-emerald-teal {
+    --bg-main: #0a2e23;
+    --bg-top-highlight: #124a39;
+    --bg-darker-right: #061f17;
+    --brand-border: #10b981;
+    --text-primary: #FFFFFF;
+  }
+
+  .theme-royal-blue {
+    --bg-main: #0b192c;
+    --bg-top-highlight: #1e3e62;
+    --bg-darker-right: #050d18;
+    --brand-border: #0087ca;
+    --text-primary: #FFFFFF;
+  }
+
+  .theme-modern-aqua {
+    --bg-main: #081c24;
+    --bg-top-highlight: #0e3442;
+    --bg-darker-right: #05131a;
+    --brand-border: #00b4d8;
+    --text-primary: #FFFFFF;
   }
 }
 
 body {
-  color: var(--charcoal);
-  background-color: #f8fafc;
+  color: var(--text-primary);
+  background-color: var(--bg-main, #012B37);
   font-family: var(--font-open-sans), sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -32,7 +32,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-7 space-y-6">
           <span className="text-[#198754] font-bold text-xs uppercase tracking-widest">
             Our Journey
@@ -65,36 +65,49 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="lg:col-span-5 bg-white border border-slate-200 text-slate-900 rounded-2xl p-8 space-y-6 shadow-xl">
-          <h3 className="text-xl font-bold font-montserrat text-slate-900 border-b border-slate-100 pb-4">
-            What We Manufacture & Supply
-          </h3>
-          <ul className="space-y-3 text-sm text-slate-700">
-            <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-[#198754] flex-shrink-0" />
-              <span>High-Fastness Dyes & Shade Formulations</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-[#0077B6] flex-shrink-0" />
-              <span>Organic & Inorganic Industrial Pigments</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-[#B8860B] flex-shrink-0" />
-              <span>Application-Specific Specialty Chemicals</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-[#008080] flex-shrink-0" />
-              <span>Pulp, Board & Paper Additives</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-[#CD5C5C] flex-shrink-0" />
-              <span>Textile Processing & Finishing Chemicals</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-              <span>Quality-Assured Industrial Raw Ingredients</span>
-            </li>
-          </ul>
+        <div className="lg:col-span-5 space-y-6">
+          {/* Official Factory Facility Image */}
+          <div className="relative h-[260px] sm:h-[300px] rounded-2xl overflow-hidden border border-slate-200 shadow-xl group">
+            <img
+              src="/home/chemfar.jpg"
+              alt="Chemfarm International Manufacturing Plant & Facility"
+              className="w-full h-full object-cover brightness-115 contrast-105 group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+
+          <div className="bg-white border border-slate-200 text-slate-900 rounded-2xl p-6 space-y-4 shadow-lg text-center">
+            <h3 className="text-lg font-bold font-montserrat text-slate-900 border-b border-slate-100 pb-3 text-center">
+              What We Manufacture & Supply
+            </h3>
+            <div className="flex justify-center">
+              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 text-left inline-block">
+                <li className="flex items-center space-x-3">
+                  <CheckCircle2 className="w-4 h-4 text-[#198754] flex-shrink-0" />
+                  <span>High-Fastness Dyes & Shade Formulations</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckCircle2 className="w-4 h-4 text-[#0077B6] flex-shrink-0" />
+                  <span>Organic & Inorganic Industrial Pigments</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckCircle2 className="w-4 h-4 text-[#B8860B] flex-shrink-0" />
+                  <span>Application-Specific Specialty Chemicals</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckCircle2 className="w-4 h-4 text-[#008080] flex-shrink-0" />
+                  <span>Pulp, Board & Paper Additives</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckCircle2 className="w-4 h-4 text-[#CD5C5C] flex-shrink-0" />
+                  <span>Textile Processing & Finishing Chemicals</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>Quality-Assured Industrial Raw Ingredients</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

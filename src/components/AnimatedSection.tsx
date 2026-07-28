@@ -26,7 +26,7 @@ export function AnimatedSection({
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.01 }
     );
 
     if (ref.current) {
@@ -79,7 +79,7 @@ export function BlurText({
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.01 }
     );
 
     if (ref.current) {
