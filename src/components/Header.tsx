@@ -297,7 +297,7 @@ export default function Header() {
           <div className="flex lg:hidden items-center space-x-3">
             <Link
               href="/contact"
-              className="px-3 py-1.5 rounded-md text-xs font-semibold text-white bg-[#198754]"
+              className="px-3 py-1.5 rounded-md text-xs font-semibold text-white bg-[#2084A0] hover:bg-[#033645] transition-colors"
             >
               Contact
             </Link>
