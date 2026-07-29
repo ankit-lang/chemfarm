@@ -1,48 +1,43 @@
 .specular-button {
-  --sb-radius: 18px;
-  --sb-tint: #ffffff;
-  --sb-tint-opacity: 0;
-  --sb-blur: 0px;
-  --sb-text-color: #f5f5f5;
+  --sb-radius: 999px;
+  --sb-text-color: #ffffff;
+  --sb-bg: linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%);
+  --sb-line-color: rgba(250, 204, 21, 0.7);
 
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 1px solid var(--sb-line-color);
   margin: 0;
   font-family: inherit;
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1;
   color: var(--sb-text-color);
-  background: var(--sb-bg, color-mix(in srgb, var(--sb-tint) calc(var(--sb-tint-opacity) * 100%), transparent));
+  background: var(--sb-bg);
   border-radius: var(--sb-radius);
-  backdrop-filter: blur(var(--sb-blur));
-  -webkit-backdrop-filter: blur(var(--sb-blur));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
-  transition: transform 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  user-select: none;
+  overflow: hidden;
+}
+
+.specular-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
 }
 
 .specular-button:active {
   transform: scale(0.97);
 }
 
-.specular-button:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--sb-text-color) 60%, transparent);
-  outline-offset: 3px;
-}
-
 .specular-button:disabled {
   opacity: 0.55;
   cursor: default;
-}
-
-.specular-button:disabled:active {
   transform: none;
 }
 
@@ -58,24 +53,7 @@
 
 .specular-button--lg {
   font-size: 1.05rem;
-  padding: 16px 36px;
-}
-
-/* Canvas extends past the button so the rim glow can bleed outside the edge */
-.specular-button__fx {
-  position: absolute;
-  inset: -20px;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.specular-button__fx canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: transparent !important;
-  pointer-events: none !important;
+  padding: 14px 32px;
 }
 
 .specular-button__label {
