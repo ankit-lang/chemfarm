@@ -150,126 +150,136 @@ useEffect(() => {
   const fx = fxRef.current;
   if (!btn || !fx) return;
 
-  const dpr = window.devicePixelRatio || 1;
-  const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: true, dpr });
-  const gl = renderer.gl;
-  gl.clearColor(0, 0, 0, 0);
-  gl.enable(gl.BLEND);
-  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+  let cleanup = () => {};
 
-  const geometry = new Triangle(gl);
-  if (geometry.attributes.uv) delete geometry.attributes.uv;
+  try {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: true, dpr });
+    const gl = renderer.gl;
+    if (!gl) return;
 
-  const program = new Program(gl, {
-    vertex: VERT,
-    fragment: FRAG,
-    uniforms: {
-      uCenter: { value: [0, 0] },
-      uHalfSize: { value: [1, 1] },
-      uRadius: { value: 0 },
-      uAngle: { value: 2.4 },
-      uPx: { value: dpr },
-      uLineColor: { value: [1, 1, 1] },
-      uBaseColor: { value: [0.32, 0.32, 0.32] },
-      uIntensity: { value: 1 },
-      uShineSize: { value: 0.17 },
-      uShineFade: { value: 0.7 },
-      uThickness: { value: 1 },
-      uBaseWidth: { value: dpr },
-    },
-  });
+    gl.clearColor(0, 0, 0, 0);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
 
-  const mesh = new Mesh(gl, { geometry, program });
-  fx.appendChild(gl.canvas);
+    const geometry = new Triangle(gl);
+    if (geometry.attributes.uv) delete geometry.attributes.uv;
 
-  const sizeRef = { w: 1, h: 1 };
-  const resize = () => {
-    const rect = btn.getBoundingClientRect();
-    const w = rect.width;
-    const h = rect.height;
-    sizeRef.w = w;
-    sizeRef.h = h;
-    renderer.setSize(w + PAD * 2, h + PAD * 2);
-    program.uniforms.uCenter.value = [(PAD + w / 2) * dpr, (PAD + h / 2) * dpr];
-    program.uniforms.uHalfSize.value = [(w / 2) * dpr, (h / 2) * dpr];
-  };
-  const ro = new ResizeObserver(resize);
-  ro.observe(btn);
-  resize();
+    const program = new Program(gl, {
+      vertex: VERT,
+      fragment: FRAG,
+      uniforms: {
+        uCenter: { value: [0, 0] },
+        uHalfSize: { value: [1, 1] },
+        uRadius: { value: 0 },
+        uAngle: { value: 2.4 },
+        uPx: { value: dpr },
+        uLineColor: { value: [1, 1, 1] },
+        uBaseColor: { value: [0.32, 0.32, 0.32] },
+        uIntensity: { value: 1 },
+        uShineSize: { value: 0.17 },
+        uShineFade: { value: 0.7 },
+        uThickness: { value: 1 },
+        uBaseWidth: { value: dpr },
+      },
+    });
 
-  let pointerAngle: number | null = null;
-  let proximityT = 0;
-  const onPointerMove = (e: PointerEvent) => {
-    const rect = btn.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
-    const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
-    const dist = Math.hypot(dx, dy);
+    const mesh = new Mesh(gl, { geometry, program });
+    fx.appendChild(gl.canvas);
 
-    if (dist === 0) {
-      const nx = (e.clientX - cx) / (rect.width / 2);
-      const ny = (cy - e.clientY) / (rect.height / 2);
-      pointerAngle = Math.atan2(2 / rect.height, -2 / rect.width) + nx * 0.3 + ny * 0.15;
-    } else {
-      pointerAngle = Math.atan2(cy - e.clientY, e.clientX - cx);
+    const sizeRef = { w: 1, h: 1 };
+    const resize = () => {
+      const rect = btn.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+      sizeRef.w = w;
+      sizeRef.h = h;
+      renderer.setSize(w + PAD * 2, h + PAD * 2);
+      program.uniforms.uCenter.value = [(PAD + w / 2) * dpr, (PAD + h / 2) * dpr];
+      program.uniforms.uHalfSize.value = [(w / 2) * dpr, (h / 2) * dpr];
+    };
+    const ro = new ResizeObserver(resize);
+    ro.observe(btn);
+    resize();
+
+    let pointerAngle: number | null = null;
+    let proximityT = 0;
+    const onPointerMove = (e: PointerEvent) => {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
+      const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
+      const dist = Math.hypot(dx, dy);
+
+      if (dist === 0) {
+        const nx = (e.clientX - cx) / (rect.width / 2);
+        const ny = (cy - e.clientY) / (rect.height / 2);
+        pointerAngle = Math.atan2(2 / rect.height, -2 / rect.width) + nx * 0.3 + ny * 0.15;
+      } else {
+        pointerAngle = Math.atan2(cy - e.clientY, e.clientX - cx);
+      }
+      const t = Math.max(0, 1 - dist / Math.max(propsRef.current.proximity, 1));
+      proximityT = t * t * (3 - 2 * t);
+    };
+    window.addEventListener("pointermove", onPointerMove);
+
+    let angle = 2.4;
+    let idleAngle = 2.4;
+    let bright = 0;
+    let last = performance.now();
+    let raf = 0;
+
+    function hexToRgb(hex?: string, fallback: [number, number, number] = [1, 1, 1]): [number, number, number] {
+      if (!hex || typeof hex !== "string") return fallback;
+      let clean = hex.trim();
+      if (clean.startsWith("#")) clean = clean.slice(1);
+      if (clean.length === 8) clean = clean.slice(0, 6);
+      if (clean.length === 3) {
+        clean = clean.split("").map((ch) => ch + ch).join("");
+      }
+      if (clean.length !== 6) return fallback;
+      const num = parseInt(clean, 16);
+      if (isNaN(num)) return fallback;
+      return [(num >> 16 & 255) / 255, (num >> 8 & 255) / 255, (num & 255) / 255];
     }
-    const t = Math.max(0, 1 - dist / Math.max(propsRef.current.proximity, 1));
-    proximityT = t * t * (3 - 2 * t);
-  };
-  window.addEventListener("pointermove", onPointerMove);
 
-  let angle = 2.4;
-  let idleAngle = 2.4;
-  let bright = 0;
-  let last = performance.now();
-  let raf = 0;
+    const update = (now: number) => {
+      raf = requestAnimationFrame(update);
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      const p = propsRef.current;
 
-  function hexToRgb(hex?: string, fallback: [number, number, number] = [1, 1, 1]): [number, number, number] {
-    if (!hex || typeof hex !== "string") return fallback;
-    let clean = hex.trim();
-    if (clean.startsWith("#")) clean = clean.slice(1);
-    if (clean.length === 8) clean = clean.slice(0, 6);
-    if (clean.length === 3) {
-      clean = clean.split("").map((ch) => ch + ch).join("");
-    }
-    if (clean.length !== 6) return fallback;
-    const num = parseInt(clean, 16);
-    if (isNaN(num)) return fallback;
-    return [(num >> 16 & 255) / 255, (num >> 8 & 255) / 255, (num & 255) / 255];
+      idleAngle += Math.max(p.speed, 0.8) * dt * 2.2;
+      angle = idleAngle;
+
+      const brightTarget = 1.0;
+      bright += (brightTarget - bright) * (1 - Math.exp(-dt * 8));
+
+      program.uniforms.uAngle.value = angle;
+      program.uniforms.uRadius.value = Math.min(p.radius, Math.min(sizeRef.w, sizeRef.h) / 2) * dpr;
+      program.uniforms.uLineColor.value = hexToRgb(p.lineColor, [1, 1, 1]);
+      program.uniforms.uBaseColor.value = hexToRgb(p.baseColor, [0.1, 0.5, 0.3]);
+      program.uniforms.uIntensity.value = p.intensity * bright;
+      program.uniforms.uShineSize.value = (p.shineSize * Math.PI) / 180;
+      program.uniforms.uShineFade.value = (p.shineFade * Math.PI) / 180;
+      program.uniforms.uThickness.value = p.thickness * dpr;
+      renderer.render({ scene: mesh });
+    };
+    raf = requestAnimationFrame(update);
+
+    cleanup = () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      window.removeEventListener("pointermove", onPointerMove);
+      if (gl.canvas && gl.canvas.parentNode === fx) fx.removeChild(gl.canvas);
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
+    };
+  } catch (e) {
+    console.warn("SpecularButton WebGL fallback:", e);
   }
 
-  const update = (now: number) => {
-    raf = requestAnimationFrame(update);
-    const dt = Math.min((now - last) / 1000, 0.05);
-    last = now;
-    const p = propsRef.current;
-
-    idleAngle += Math.max(p.speed, 0.8) * dt * 2.2;
-    angle = idleAngle;
-
-    const brightTarget = 1.0;
-    bright += (brightTarget - bright) * (1 - Math.exp(-dt * 8));
-
-    program.uniforms.uAngle.value = angle;
-    program.uniforms.uRadius.value = Math.min(p.radius, Math.min(sizeRef.w, sizeRef.h) / 2) * dpr;
-    program.uniforms.uLineColor.value = hexToRgb(p.lineColor, [1, 1, 1]);
-    program.uniforms.uBaseColor.value = hexToRgb(p.baseColor, [0.1, 0.5, 0.3]);
-    program.uniforms.uIntensity.value = p.intensity * bright;
-    program.uniforms.uShineSize.value = (p.shineSize * Math.PI) / 180;
-    program.uniforms.uShineFade.value = (p.shineFade * Math.PI) / 180;
-    program.uniforms.uThickness.value = p.thickness * dpr;
-    renderer.render({ scene: mesh });
-  };
-  raf = requestAnimationFrame(update);
-
-  return () => {
-    cancelAnimationFrame(raf);
-    ro.disconnect();
-    window.removeEventListener("pointermove", onPointerMove);
-    if (gl.canvas.parentNode === fx) fx.removeChild(gl.canvas);
-    gl.getExtension("WEBGL_lose_context")?.loseContext();
-  };
+  return () => cleanup();
 }, []);
 
 return (
