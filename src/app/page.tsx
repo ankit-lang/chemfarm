@@ -368,21 +368,18 @@ export default function HomePage() {
       </section>
 
       {/* 8. MANUFACTURING & R&D EXCELLENCE SECTION */}
-      <section className="py-20 bg-[#012B37] text-white relative overflow-hidden border-t border-[#2084A0]/30">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#2084A0]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Image Column */}
+      <section className="py-20 bg-[#012B37] text-white relative overflow-hidden border-t border-white/40">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#015863]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative">
-              <AnimatedSection type="scale">
-                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-[#2084A0] shadow-2xl">
+              <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-white/40 shadow-2xl">
                   <img
                     src="/home/chemfar.jpg"
                     alt="Chemfarm International Manufacturing Facility"
                     className="w-full h-full object-cover brightness-115 contrast-105"
                   />
-                </div>
-              </AnimatedSection>
+              </div>
             </div>
 
             {/* Right Content Column */}
@@ -458,7 +455,7 @@ export default function HomePage() {
 
 
       {/* 9. INTERACTIVE TESTIMONIAL CAROUSEL */}
-      <section className="py-20 bg-[#02252F] border-t border-[#2084A0]/30 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-[#02252F] border-t border-white/40 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="text-center space-y-2">
             <BlurText

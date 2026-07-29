@@ -192,35 +192,35 @@ export default function HeroSliderBanner() {
       <button
         onClick={handlePrev}
         aria-label="Previous Slide"
-        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#02252F]/70 hover:bg-[#033645] border border-[#2084A0]/50 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
+        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#02252F]/70 hover:bg-[#015863] border border-white/40 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
       >
-        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-[#2084A0]" />
+        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
       </button>
 
       <button
         onClick={handleNext}
         aria-label="Next Slide"
-        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#02252F]/70 hover:bg-[#033645] border border-[#2084A0]/50 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
+        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#02252F]/70 hover:bg-[#015863] border border-white/40 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-110"
       >
-        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-[#2084A0]" />
+        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
       </button>
 
       {/* Slide Indicators & Counter */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3 bg-[#02252F]/80 px-4 py-2 rounded-full border border-[#2084A0]/40 backdrop-blur-md">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3 bg-[#02252F]/80 px-4 py-2 rounded-full border border-white/40 backdrop-blur-md">
         {SLIDES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
             aria-label={`Go to slide ${idx + 1}`}
-            className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex ? "w-8 bg-[#2084A0]" : "w-2.5 bg-white/40 hover:bg-white/70"
+            className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex ? "w-8 bg-[#015863]" : "w-2.5 bg-white/40 hover:bg-white/70"
               }`}
           />
         ))}
       </div>
 
       {/* Slide Counter Label (Bottom Right) */}
-      <div className="absolute bottom-8 right-6 sm:right-10 z-20 hidden sm:flex items-center space-x-2 text-xs font-mono text-slate-300 bg-[#02252F]/80 px-3 py-1.5 rounded-full border border-[#2084A0]/40 backdrop-blur-md">
-        <span className="text-[#2084A0] font-bold">0{currentIndex + 1}</span>
+      <div className="absolute bottom-8 right-6 sm:right-10 z-20 hidden sm:flex items-center space-x-2 text-xs font-mono text-slate-300 bg-[#02252F]/80 px-3 py-1.5 rounded-full border border-white/40 backdrop-blur-md">
+        <span className="text-white font-bold">0{currentIndex + 1}</span>
         <span>/</span>
         <span>0{SLIDES.length}</span>
       </div>
