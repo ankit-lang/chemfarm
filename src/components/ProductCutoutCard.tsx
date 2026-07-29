@@ -26,7 +26,7 @@ export function ProductCutoutCard({
   detailsLink,
 }: CutoutCardProps) {
   return (
-    <div className="relative w-full rounded-[28px] bg-slate-900 text-white border border-slate-800 shadow-2xl overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300">
+    <div className="relative w-full rounded-[28px] bg-slate-900 text-white border border-white shadow-2xl overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300">
       {/* Media Top Container */}
       <div className="relative h-64 w-full overflow-hidden bg-slate-950">
         <Image
@@ -35,7 +35,6 @@ export function ProductCutoutCard({
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
 
         {/* Top-Right Cutout Notch Pin ("New" / "Top Seller") */}
         <div className="absolute top-0 right-0 bg-slate-900 rounded-bl-[20px] pt-1.5 pb-2 px-4 flex items-center justify-center">
@@ -52,7 +51,7 @@ export function ProductCutoutCard({
           </div>
 
           <span className="bg-white text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-sm flex items-center space-x-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#198754]" />
+            <ShieldCheck className="w-3.5 h-3.5 text-slate-900" />
             <span>{pinText}</span>
           </span>
         </div>
@@ -71,8 +70,8 @@ export function ProductCutoutCard({
             </svg>
           </div>
 
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#4ade80] flex items-center space-x-1">
-            <Beaker className="w-3 h-3 text-[#4ade80]" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-white flex items-center space-x-1">
+            <Beaker className="w-3 h-3 text-white" />
             <span>{badge}</span>
           </span>
         </div>
@@ -81,7 +80,7 @@ export function ProductCutoutCard({
       {/* Content Container */}
       <div className="p-6 flex-1 flex flex-col justify-between space-y-4 bg-slate-900">
         <div className="space-y-2">
-          <h3 className="text-xl font-bold font-montserrat text-white group-hover:text-[#4ade80] transition-colors leading-snug h-7 flex items-center">
+          <h3 className="text-xl font-bold font-montserrat text-white leading-snug h-7 flex items-center">
             {title}
           </h3>
           <p className="text-xs text-slate-400 leading-relaxed h-12 line-clamp-2 font-light">
@@ -90,10 +89,10 @@ export function ProductCutoutCard({
         </div>
 
         {/* Footer Row with Specs and Pill Button - Uniform Alignment */}
-        <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-3 min-h-[52px]">
+        <div className="pt-4 border-t border-white/20 flex items-center justify-between gap-3 min-h-[52px]">
           <div className="flex flex-wrap gap-1.5 text-[10px] text-slate-300 font-medium max-w-[65%]">
             {specs.map((spec, sIdx) => (
-              <span key={sIdx} className="bg-slate-800/80 border border-slate-700/60 px-2 py-0.5 rounded text-slate-300 whitespace-nowrap">
+              <span key={sIdx} className="bg-slate-800/80 border border-white/30 px-2 py-0.5 rounded text-white whitespace-nowrap">
                 {spec}
               </span>
             ))}
@@ -104,8 +103,8 @@ export function ProductCutoutCard({
               size="sm"
               tint="#ffffff"
               tintOpacity={1}
-              lineColor="#4ade80"
-              baseColor="#198754"
+              lineColor="#ffffff"
+              baseColor="#1e293b"
               textColor="#020617"
               radius={999}
               autoAnimate

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --font-ubuntu: var(--font-ubuntu), sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --font-open-sans: var(--font-open-sans), sans-serif;
+}
+
 @layer base {
   :root {
     --bg-main: #012B37;
@@ -59,6 +65,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Custom Utilities */
+.font-ubuntu {
+  font-family: var(--font-ubuntu), sans-serif;
+}
+
+.btn-gold-teal-gradient {
+  background: linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%) !important;
+}
+
 .glass-nav {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
@@ -131,4 +145,8 @@ h1, h2, h3, h4, h5, h6 {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+
+.btn-gold-teal-gradient {
+  background: linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%) !important;
+}
 

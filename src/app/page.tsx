@@ -24,6 +24,7 @@ import { AnimatedSection, BlurText } from "@/components/AnimatedSection";
 import HeroSliderBanner from "@/components/HeroSliderBanner";
 import { ProductCutoutCard } from "@/components/ProductCutoutCard";
 import LineSidebar from "@/components/LineSidebar";
+import SpecularButton from "@/components/SpecularButton";
 
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
@@ -74,7 +75,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <BlurText
               text="Core Capabilities"
-              className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
+              className="text-white font-bold text-xs uppercase tracking-widest"
             />
             <BlurText
               text="Manufacturers of Dyes, Chemicals & Industrial Ingredients"
@@ -91,21 +92,21 @@ export default function HomePage() {
           {/* Interactive Product Index & Card Display */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full max-w-full overflow-hidden">
             {/* Interactive Proximity LineSidebar Navigation */}
-            <div className="lg:col-span-4 bg-[#033645] p-5 sm:p-8 rounded-2xl border border-[#2084A0] shadow-xl lg:sticky lg:top-24 w-full overflow-hidden">
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#2084A0]/30">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-[#2084A0]">
+            <div className="lg:col-span-4 bg-[#033645] p-5 sm:p-8 rounded-2xl border border-white/60 shadow-xl lg:sticky lg:top-24 w-full overflow-hidden">
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/30">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-white">
                   Interactive Product Index
                 </h3>
-                <span className="text-[10px] font-semibold bg-[#02252F] text-[#2084A0] px-2 py-0.5 rounded-full border border-[#2084A0]/40">
+                <span className="text-[10px] font-semibold bg-[#02252F] text-white px-2 py-0.5 rounded-full border border-white/30">
                   Click to view
                 </span>
               </div>
               <LineSidebar
                 items={PRODUCTS_DATA.map((p) => p.title)}
                 showIndex={false}
-                accentColor="#2084A0"
+                accentColor="#FFFFFF"
                 textColor="#FFFFFF"
-                markerColor="rgba(32, 132, 160, 0.5)"
+                markerColor="rgba(255, 255, 255, 0.7)"
                 maxShift={20}
                 itemGap={16}
                 fontSize={0.95}
@@ -118,7 +119,7 @@ export default function HomePage() {
             {/* Selected Product Card Showcase */}
             <div className="lg:col-span-8">
               <AnimatedSection key={selectedProductIndex} type="reveal" className="h-full">
-                <div className="bg-[#033645] rounded-2xl p-2 sm:p-4 shadow-xl border border-[#2084A0]">
+                <div className="bg-[#033645] rounded-2xl p-2 sm:p-4 shadow-xl border border-white/60">
                   <ProductCutoutCard
                     badge={PRODUCTS_DATA[selectedProductIndex].badge}
                     pinText={
@@ -139,7 +140,7 @@ export default function HomePage() {
 
               {/* Quick Grid Thumbnails of Other Products */}
               <div className="mt-6">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#2084A0] mb-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
                   All Products ({PRODUCTS_DATA.length})
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -148,15 +149,12 @@ export default function HomePage() {
                       key={prod.id}
                       onClick={() => setSelectedProductIndex(idx)}
                       className={`text-left p-3 rounded-xl border transition-all text-xs ${selectedProductIndex === idx
-                        ? "bg-[#2084A0] text-white border-[#2084A0] shadow-md font-semibold"
-                        : "bg-[#033645] text-white border-[#2084A0]/40 hover:border-[#2084A0] hover:bg-[#02252F]"
+                        ? "btn-gold-teal-gradient text-white border-white shadow-md font-semibold"
+                        : "bg-[#033645] text-white border-white/30 hover:border-white hover:bg-[#02252F]"
                         }`}
                     >
-                      <div className="font-bold truncate">{prod.title}</div>
-                      <div
-                        className={`text-[10px] truncate mt-0.5 ${selectedProductIndex === idx ? "text-slate-100" : "text-[#2084A0]"
-                          }`}
-                      >
+                      <div className="font-bold truncate text-white">{prod.title}</div>
+                      <div className="text-[10px] truncate mt-0.5 text-white/90">
                         {prod.badge}
                       </div>
                     </button>
@@ -170,14 +168,14 @@ export default function HomePage() {
 
       {/* 5. INDUSTRIES WE SERVE - SILKY SMOOTH GPU-ACCELERATED STICKY CARDS */}
       <section
-        style={{ backgroundColor: "var(--bg-main)", borderColor: "var(--brand-border)" }}
-        className="py-20 text-white border-y border-opacity-30 relative"
+        style={{ backgroundColor: "var(--bg-main)", borderColor: "rgba(255, 255, 255, 0.2)" }}
+        className="py-20 text-white border-y border-white/20 relative"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
             <BlurText
               text="Industry Focus"
-              className="text-[var(--brand-border)] font-bold text-xs uppercase tracking-widest"
+              className="text-white font-bold text-xs uppercase tracking-widest"
             />
             <BlurText
               text="Industries We Serve"
@@ -199,16 +197,16 @@ export default function HomePage() {
                 style={{
                   top: `calc(100px + ${index * 32}px)`,
                   backgroundColor: "var(--bg-top-highlight)",
-                  borderColor: "var(--brand-border)",
+                  borderColor: "rgba(255, 255, 255, 0.6)",
                 }}
-                className="sticky rounded-3xl p-6 sm:p-10 border shadow-2xl transition-all duration-300 group hover:scale-[1.01]"
+                className="sticky rounded-3xl p-6 sm:p-10 border border-white/60 shadow-2xl transition-all duration-300 group hover:scale-[1.01]"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   <div className="lg:col-span-7 space-y-4">
                     <div className="flex items-center space-x-3">
                       <span
-                        style={{ backgroundColor: "var(--bg-darker-right)", borderColor: "var(--brand-border)" }}
-                        className="px-3 py-1 rounded-full text-xs font-bold text-[var(--brand-border)] border uppercase tracking-wider"
+                        style={{ backgroundColor: "var(--bg-darker-right)", borderColor: "rgba(255, 255, 255, 0.5)" }}
+                        className="px-3 py-1 rounded-full text-xs font-bold text-white border uppercase tracking-wider"
                       >
                         {industry.stats}
                       </span>
@@ -221,10 +219,10 @@ export default function HomePage() {
                     </p>
                     <Link
                       href={`/industries/${industry.slug}`}
-                      className="inline-flex items-center space-x-2 text-sm font-bold text-[var(--brand-border)] group-hover:text-white transition-colors"
+                      className="inline-flex items-center space-x-2 text-sm font-bold text-white hover:text-white/80 transition-colors"
                     >
                       <span>Explore {industry.name}</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 text-[#facc15] group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>
@@ -260,7 +258,7 @@ export default function HomePage() {
             <div className="lg:col-span-6 space-y-6">
               <BlurText
                 text="Welcome to Chemfarm International"
-                className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
+                className="text-white font-bold text-xs uppercase tracking-widest"
               />
               <BlurText
                 text="Engineered Specialty Chemicals Delivering High Performance & Reliability"
@@ -334,35 +332,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. CERTIFICATIONS & REGULATORY COMPLIANCE STRIP (From reference) */}
       {/* 7. CERTIFICATIONS & REGULATORY COMPLIANCE STRIP */}
-      <section className="py-16 bg-[#02252F] border-b border-[#2084A0]/30 px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 bg-[#02252F] border-b border-white/20 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#2084A0]">
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white drop-shadow-sm">
             All formulations adhere to international standards and hold renowned certifications
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
-              <ShieldCheck className="w-10 h-10 text-[#2084A0]" />
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <ShieldCheck className="w-10 h-10 text-white" />
               <h4 className="text-sm font-bold text-white font-montserrat">ISO 9001:2015</h4>
               <p className="text-xs text-slate-300">Quality Management System</p>
             </div>
 
-            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
-              <Award className="w-10 h-10 text-[#2084A0]" />
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <Award className="w-10 h-10 text-white" />
               <h4 className="text-sm font-bold text-white font-montserrat">REACH Compliant</h4>
               <p className="text-xs text-slate-300">EU Chemical Safety Directives</p>
             </div>
 
-            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
-              <Sparkles className="w-10 h-10 text-[#2084A0]" />
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <Sparkles className="w-10 h-10 text-white" />
               <h4 className="text-sm font-bold text-white font-montserrat">Ø ZDHC Level 3</h4>
               <p className="text-xs text-slate-300">Zero Discharge Hazardous Chemicals</p>
             </div>
 
-            <div className="bg-[#033645] p-6 rounded-xl border border-[#2084A0] shadow-sm flex flex-col items-center space-y-2">
-              <CheckCircle2 className="w-10 h-10 text-[#2084A0]" />
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <CheckCircle2 className="w-10 h-10 text-white" />
               <h4 className="text-sm font-bold text-white font-montserrat">OEKO-TEX ECO</h4>
               <p className="text-xs text-slate-300">Sustainable Textile Standard</p>
             </div>
@@ -392,7 +389,7 @@ export default function HomePage() {
             <div className="lg:col-span-6 space-y-6">
               <BlurText
                 text="Manufacturing & Quality Control"
-                className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
+                className="text-white font-bold text-xs uppercase tracking-widest"
               />
               <BlurText
                 text="Precision Engineering from Raw Material to Final Shade"
@@ -407,30 +404,50 @@ export default function HomePage() {
 
               <div className="grid grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-xl bg-[#033645] border border-[#2084A0]">
-                  <h4 className="text-lg font-bold text-[#2084A0] font-montserrat">ISO 9001:2015</h4>
+                  <h4 className="text-lg font-bold text-white font-montserrat">ISO 9001:2015</h4>
                   <p className="text-xs text-slate-300 mt-1">Quality Management System</p>
                 </div>
                 <div className="p-4 rounded-xl bg-[#033645] border border-[#2084A0]">
-                  <h4 className="text-lg font-bold text-[#2084A0] font-montserrat">Eco-Compliant</h4>
+                  <h4 className="text-lg font-bold text-white font-montserrat">Eco-Compliant</h4>
                   <p className="text-xs text-slate-300 mt-1">Sustainable Waste Neutralization</p>
                 </div>
               </div>
 
-              <div className="pt-4 flex items-center space-x-4">
-                <Link
-                  href="/quality"
-                  className="px-6 py-3 rounded-full bg-[#2084A0] hover:bg-[#033645] text-white text-sm font-semibold shadow-lg transition-all flex items-center space-x-2 border border-[#2084A0]"
-                >
-                  <span>Explore Quality Process</span>
-                  <ArrowRight className="w-4 h-4" />
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <Link href="/quality">
+                  <SpecularButton
+                    size="md"
+                    bgGradient="linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%)"
+                    lineColor="#facc15"
+                    baseColor="#015863"
+                    textColor="#ffffff"
+                    radius={999}
+                    autoAnimate
+                    className="font-medium shadow-xl font-ubuntu"
+                  >
+                    <span>Explore Quality Process</span>
+                    <ArrowRight className="w-4 h-4 text-[#facc15]" />
+                  </SpecularButton>
                 </Link>
+
                 <a
                   href="/catalogue.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full bg-[#033645] hover:bg-[#02252F] border border-[#2084A0] text-white text-sm font-semibold transition-all"
                 >
-                  Download Catalogue (PDF)
+                  <SpecularButton
+                    size="md"
+                    bgGradient="linear-gradient(110deg, rgba(68, 69, 23, 0.5) 0%, rgba(9, 79, 72, 0.6) 18%, rgba(1, 88, 99, 0.6) 50%, rgba(0, 118, 134, 0.6) 80%, rgba(0, 140, 157, 0.6) 100%)"
+                    blur={12}
+                    lineColor="#ffffff"
+                    baseColor="#02252F"
+                    textColor="#ffffff"
+                    radius={999}
+                    autoAnimate
+                    className="font-medium border border-white/20 shadow-lg font-ubuntu"
+                  >
+                    <span>Download Catalogue (PDF)</span>
+                  </SpecularButton>
                 </a>
               </div>
             </div>
@@ -446,7 +463,7 @@ export default function HomePage() {
           <div className="text-center space-y-2">
             <BlurText
               text="Client Feedback"
-              className="text-[#2084A0] font-bold text-xs uppercase tracking-widest"
+              className="text-white font-bold text-xs uppercase tracking-widest"
             />
             <BlurText
               text="Trusted by Industry Leaders"

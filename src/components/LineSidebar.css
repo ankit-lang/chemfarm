@@ -23,14 +23,15 @@
   cursor: pointer;
   transform: translateX(calc(var(--effect, 0) * var(--max-shift, 20px)));
   transition: color 0.2s ease, transform 0.15s ease;
-  color: var(--text-color, #64748b);
+  color: var(--text-color, #ffffff);
   font-size: var(--font-size, 1rem);
   max-width: 100%;
 }
 
 .line-sidebar__item:hover,
 .line-sidebar__item[aria-current="true"] {
-  color: var(--accent-color, #198754);
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .line-sidebar__marker {
@@ -44,7 +45,7 @@
 
 .line-sidebar__item:hover .line-sidebar__marker,
 .line-sidebar__item[aria-current="true"] .line-sidebar__marker {
-  background-color: var(--accent-color, #198754);
+  background-color: #ffffff;
 }
 
 .line-sidebar__label {

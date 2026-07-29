@@ -169,10 +169,10 @@ function ContactForm() {
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-lg bg-[#198754] hover:bg-[#146c43] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center space-x-2"
+            className="w-full py-3.5 rounded-xl btn-gold-teal-gradient border border-white/20 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center space-x-2"
           >
             <span>Submit Quote Request</span>
-            <Send className="w-4 h-4" />
+            <Send className="w-4 h-4 text-[#facc15]" />
           </button>
         </form>
       )}

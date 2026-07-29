@@ -93,7 +93,7 @@ export default function TestimonialCarousel() {
           <h5 className="font-bold text-slate-900 font-montserrat text-base">
             {current.author}
           </h5>
-          <p className="text-xs text-[#198754] font-semibold mt-0.5">
+          <p className="text-xs text-black font-semibold mt-0.5">
             {current.role} — {current.company}
           </p>
           <span className="inline-block mt-2 px-3 py-1 rounded-full text-[11px] font-medium bg-slate-100 border border-slate-200 text-slate-600">

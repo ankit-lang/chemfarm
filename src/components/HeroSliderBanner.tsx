@@ -97,7 +97,7 @@ export default function HeroSliderBanner() {
 
   return (
     <section
-      className="relative w-full h-[620px] sm:h-[680px] lg:h-[720px] bg-slate-950 overflow-hidden text-white border-b border-emerald-900/30"
+      className="relative w-full h-[620px] sm:h-[680px] lg:h-[720px] bg-slate-950 overflow-hidden text-white border-b border-emerald-900/30 font-ubuntu"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -122,17 +122,18 @@ export default function HeroSliderBanner() {
           {/* Slide Content Container with Lighter Aligned Glassmorphism Card */}
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-              <div className="max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#012B37]/35 backdrop-blur-md border border-white/20 shadow-2xl space-y-5 text-left">
+              <div className="max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#012B37]/35 backdrop-blur-md border border-white/20 shadow-2xl space-y-5 text-left font-ubuntu">
                 {/* Main Heading */}
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-montserrat leading-[1.15] text-white drop-shadow-lg">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight font-ubuntu leading-[1.15] text-white">
                   {slide.titlePrimary}{" "}
-                  <span className="font-serif italic font-normal text-[#2084A0] block sm:inline drop-shadow-lg">
+                  <br />
+                  <span className="font-ubuntu font-light  block sm:inline">
                     {slide.titleSecondary}
                   </span>
                 </h1>
 
                 {/* Description */}
-                <p className="text-xs sm:text-base lg:text-lg text-white leading-relaxed max-w-xl font-normal drop-shadow-md">
+                <p className="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed max-w-xl font-light">
                   {slide.description}
                 </p>
 
@@ -141,35 +142,33 @@ export default function HeroSliderBanner() {
                   <Link href={slide.primaryCtaLink}>
                     <SpecularButton
                       size="md"
-                      tint="#2084A0"
-                      tintOpacity={1}
-                      lineColor="#2084A0"
-                      baseColor="#033645"
+                      bgGradient="linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%)"
+                      lineColor="#ffffff"
+                      baseColor="#015863"
                       textColor="#ffffff"
                       radius={999}
                       autoAnimate
-                      className="font-semibold shadow-lg"
+                      className="font-medium shadow-xl font-ubuntu"
                     >
                       <span>{slide.primaryCtaText}</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 text-[#facc15]" />
                     </SpecularButton>
                   </Link>
 
                   <Link href={slide.secondaryCtaLink}>
                     <SpecularButton
                       size="md"
-                      tint="#ffffff"
-                      tintOpacity={0.2}
+                      bgGradient="linear-gradient(110deg, rgba(68, 69, 23, 0.5) 0%, rgba(9, 79, 72, 0.6) 18%, rgba(1, 88, 99, 0.6) 50%, rgba(0, 118, 134, 0.6) 80%, rgba(0, 140, 157, 0.6) 100%)"
                       blur={12}
-                      lineColor="#2084A0"
+                      lineColor="#ffffff"
                       baseColor="#02252F"
                       textColor="#ffffff"
                       radius={999}
                       autoAnimate
-                      className="font-semibold border border-white/30 shadow-lg"
+                      className="font-medium border border-white/20 shadow-lg font-ubuntu"
                     >
                       <span>{slide.secondaryCtaText}</span>
-                      <MessageSquare className="w-4 h-4 text-[#2084A0]" />
+                      <MessageSquare className="w-4 h-4 text-[#facc15]" />
                     </SpecularButton>
                   </Link>
                 </div>
@@ -178,8 +177,8 @@ export default function HeroSliderBanner() {
                 <div className="pt-5 border-t border-white/20 grid grid-cols-3 gap-4 max-w-lg">
                   {slide.stats.map((stat, sIdx) => (
                     <div key={sIdx} className="text-left">
-                      <div className="text-lg sm:text-2xl font-bold font-montserrat text-white drop-shadow-md">{stat.value}</div>
-                      <div className="text-[10px] sm:text-xs text-slate-100 font-medium drop-shadow-sm">{stat.label}</div>
+                      <div className="text-lg sm:text-2xl font-medium font-ubuntu text-white">{stat.value}</div>
+                      <div className="text-[10px] sm:text-xs text-slate-300 font-light font-ubuntu">{stat.label}</div>
                     </div>
                   ))}
                 </div>

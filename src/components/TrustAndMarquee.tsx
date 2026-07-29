@@ -8,25 +8,25 @@ export function TrustStrip() {
       icon: Award,
       title: "Established 1992",
       desc: "30+ Years of Manufacturing Excellence",
-      color: "text-[#2084A0]",
+      color: "text-[#38bdf8]",
     },
     {
       icon: ShieldCheck,
       title: "Trusted Manufacturer",
       desc: "ISO Certified & Stringent QC Control",
-      color: "text-[#2084A0]",
+      color: "text-[#38bdf8]",
     },
     {
       icon: Truck,
       title: "Pan-India Supply",
       desc: "Robust Logistic & Warehousing Network",
-      color: "text-[#2084A0]",
+      color: "text-[#38bdf8]",
     },
     {
       icon: Globe2,
       title: "Export Capability",
       desc: "Serving Global Markets & International Standards",
-      color: "text-[#2084A0]",
+      color: "text-[#38bdf8]",
     },
   ];
 
@@ -48,7 +48,7 @@ export function TrustStrip() {
             return (
               <div
                 key={idx}
-                className="flex items-center space-x-4 p-4 rounded-xl bg-[#02252F] border border-[#2084A0] hover:border-[#2084A0] transition-all hover:-translate-y-0.5 shadow-lg"
+                className="flex items-center space-x-4 p-4 rounded-xl bg-[#02252F] border border-[#2084A0] hover:border-[#38bdf8] transition-all hover:-translate-y-0.5 shadow-lg"
               >
                 <div className={`p-3 rounded-lg bg-[#012B37] border border-[#2084A0]/40 ${item.color}`}>
                   <Icon className="w-6 h-6" />
@@ -65,15 +65,15 @@ export function TrustStrip() {
         </div>
 
         {/* Client Trust Logos Bar */}
-        <div className="pt-6 border-t border-[#2084A0]/30 text-center space-y-4">
-          <p className="text-xs font-bold text-[#2084A0] uppercase tracking-widest">
+        <div className="pt-6 border-t border-white/20 text-center space-y-4">
+          <p className="text-xs sm:text-sm font-bold text-white uppercase tracking-widest drop-shadow-sm">
             Trusted by Industry Leaders Across India & Worldwide
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 opacity-90 transition-all">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 transition-all">
             {clientLogos.map((logo, lIdx) => (
               <span
                 key={lIdx}
-                className="text-xs sm:text-sm font-extrabold font-montserrat tracking-wider text-slate-300 hover:text-white transition-colors"
+                className="text-xs sm:text-sm font-extrabold font-montserrat tracking-wider text-white hover:text-[#38bdf8] transition-colors"
               >
                 {logo}
               </span>

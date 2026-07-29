@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Montserrat, Open_Sans, Ubuntu } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -15,6 +15,13 @@ const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  variable: "--font-ubuntu",
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
@@ -41,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${openSans.variable} scroll-smooth antialiased`}
+      className={`${montserrat.variable} ${openSans.variable} ${ubuntu.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans selection:bg-[#198754] selection:text-white">
         <Header />

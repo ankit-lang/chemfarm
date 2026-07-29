@@ -14,6 +14,7 @@ import {
   Globe,
 } from "lucide-react";
 import { INDUSTRIES_DATA } from "@/lib/siteData";
+import SpecularButton from "./SpecularButton";
 
 export default function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
@@ -34,7 +35,7 @@ export default function Footer() {
       <div className="bg-[#02252F] border-b border-[#2084A0]/30 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start">
-            <span className="text-[#2084A0] font-semibold text-xs uppercase tracking-widest">
+            <span className="text-white font-bold text-xs uppercase tracking-widest">
               Need Tailored Formulations or Bulk Supply?
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold text-white font-montserrat mt-1">
@@ -45,20 +46,37 @@ export default function Footer() {
               custom shade matching, samples, and competitive quotes.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-auto">
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-[#2084A0] hover:bg-[#033645] text-white font-semibold text-center transition-all shadow-md flex items-center justify-center space-x-2 border border-[#2084A0]"
-            >
-              <span>Contact Us</span>
-              <ArrowRight className="w-4 h-4" />
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full md:w-auto">
+            <Link href="/contact" className="w-full sm:w-auto">
+              <SpecularButton
+                size="md"
+                bgGradient="linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%)"
+                lineColor="#facc15"
+                baseColor="#015863"
+                textColor="#ffffff"
+                radius={999}
+                autoAnimate
+                className="font-medium shadow-xl font-ubuntu w-full sm:w-auto justify-center"
+              >
+                <span>Contact Us</span>
+                <ArrowRight className="w-4 h-4 text-[#facc15]" />
+              </SpecularButton>
             </Link>
-            <a
-              href="tel:+918800642621"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-[#033645] hover:bg-[#02252F] text-white font-semibold text-center transition-colors border border-[#2084A0]/50 flex items-center justify-center space-x-2 shadow-sm"
-            >
-              <Phone className="w-4 h-4 text-[#2084A0]" />
-              <span>+91 8800642621</span>
+            <a href="tel:+918800642621" className="w-full sm:w-auto">
+              <SpecularButton
+                size="md"
+                bgGradient="linear-gradient(110deg, rgba(68, 69, 23, 0.5) 0%, rgba(9, 79, 72, 0.6) 18%, rgba(1, 88, 99, 0.6) 50%, rgba(0, 118, 134, 0.6) 80%, rgba(0, 140, 157, 0.6) 100%)"
+                blur={12}
+                lineColor="#ffffff"
+                baseColor="#02252F"
+                textColor="#ffffff"
+                radius={999}
+                autoAnimate
+                className="font-medium border border-white/20 shadow-lg font-ubuntu w-full sm:w-auto justify-center"
+              >
+                <Phone className="w-4 h-4 text-[#facc15]" />
+                <span>+91 8800642621</span>
+              </SpecularButton>
             </a>
           </div>
         </div>

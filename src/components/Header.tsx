@@ -17,6 +17,7 @@ import {
   Search,
 } from "lucide-react";
 import { INDUSTRIES_DATA } from "@/lib/siteData";
+import SpecularButton from "./SpecularButton";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -286,10 +287,10 @@ export default function Header() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-[#2084A0] hover:bg-[#033645] border border-[#2084A0] shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-medium text-sm text-white btn-gold-teal-gradient border border-[#facc15]/70 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all font-ubuntu space-x-2"
             >
               <span>Contact Us</span>
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-[#facc15]" />
             </Link>
           </div>
 
@@ -297,9 +298,9 @@ export default function Header() {
           <div className="flex lg:hidden items-center space-x-3">
             <Link
               href="/contact"
-              className="px-3 py-1.5 rounded-md text-xs font-semibold text-white bg-[#2084A0] hover:bg-[#033645] transition-colors"
+              className="inline-flex items-center justify-center px-4 py-1.5 rounded-full font-medium text-xs text-white btn-gold-teal-gradient border border-[#facc15]/60 shadow-sm transition-all font-ubuntu space-x-1"
             >
-              Contact
+              <span>Contact</span>
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
