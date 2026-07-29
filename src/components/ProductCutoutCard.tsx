@@ -101,17 +101,14 @@ export function ProductCutoutCard({
           <Link href={detailsLink} className="shrink-0 self-end">
             <SpecularButton
               size="sm"
-              tint="#ffffff"
-              tintOpacity={1}
-              lineColor="#ffffff"
-              baseColor="#1e293b"
-              textColor="#020617"
+              bgGradient="linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%)"
+              lineColor="rgba(250, 204, 21, 0.7)"
+              textColor="#ffffff"
               radius={999}
-              autoAnimate
               className="font-bold"
             >
               <span>Explore</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#facc15]" />
             </SpecularButton>
           </Link>
         </div>
