@@ -79,7 +79,7 @@ export default function HomePage() {
             />
             <BlurText
               text="Manufacturers of Dyes, Chemicals & Industrial Ingredients"
-              className="text-3xl sm:text-4xl font-extrabold text-white font-montserrat"
+              className="text-3xl sm:text-4xl font-extrabold text-white font-ubuntu"
               delayMs={150}
             />
             <BlurText
@@ -92,12 +92,12 @@ export default function HomePage() {
           {/* Interactive Product Index & Card Display */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full max-w-full overflow-hidden">
             {/* Interactive Proximity LineSidebar Navigation */}
-            <div className="lg:col-span-4 bg-[#033645] p-5 sm:p-8 rounded-2xl border border-white/60 shadow-xl lg:sticky lg:top-24 w-full overflow-hidden">
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/30">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-white">
+            <div className="lg:col-span-4 bg-[#033645] p-5 sm:p-8 rounded-2xl border border-white/40 shadow-xl lg:sticky lg:top-24 w-full overflow-hidden">
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/40">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-white font-ubuntu">
                   Interactive Product Index
                 </h3>
-                <span className="text-[10px] font-semibold bg-[#02252F] text-white px-2 py-0.5 rounded-full border border-white/30">
+                <span className="text-[10px] font-semibold bg-[#02252F] text-white px-2 py-0.5 rounded-full border border-white/40">
                   Click to view
                 </span>
               </div>
@@ -107,7 +107,7 @@ export default function HomePage() {
                 accentColor="#FFFFFF"
                 textColor="#FFFFFF"
                 markerColor="rgba(255, 255, 255, 0.7)"
-                maxShift={20}
+                maxShift={0}
                 itemGap={16}
                 fontSize={0.95}
                 proximityRadius={100}
@@ -119,7 +119,7 @@ export default function HomePage() {
             {/* Selected Product Card Showcase */}
             <div className="lg:col-span-8">
               <AnimatedSection key={selectedProductIndex} type="reveal" className="h-full">
-                <div className="bg-[#033645] rounded-2xl p-2 sm:p-4 shadow-xl border border-white/60">
+                <div className="bg-[#033645] rounded-2xl p-2 sm:p-4 shadow-xl border border-white/40">
                   <ProductCutoutCard
                     badge={PRODUCTS_DATA[selectedProductIndex].badge}
                     pinText={
@@ -140,7 +140,7 @@ export default function HomePage() {
 
               {/* Quick Grid Thumbnails of Other Products */}
               <div className="mt-6">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3 font-ubuntu">
                   All Products ({PRODUCTS_DATA.length})
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -150,11 +150,11 @@ export default function HomePage() {
                       onClick={() => setSelectedProductIndex(idx)}
                       className={`text-left p-3 rounded-xl border transition-all text-xs ${selectedProductIndex === idx
                         ? "btn-gold-teal-gradient text-white border-white shadow-md font-semibold"
-                        : "bg-[#033645] text-white border-white/30 hover:border-white hover:bg-[#02252F]"
+                        : "bg-[#033645] text-white border-white/40 hover:border-white hover:bg-[#02252F]"
                         }`}
                     >
-                      <div className="font-bold truncate text-white">{prod.title}</div>
-                      <div className="text-[10px] truncate mt-0.5 text-white/90">
+                      <div className="font-bold truncate text-white font-ubuntu">{prod.title}</div>
+                      <div className="text-[10px] truncate mt-0.5 text-white/90 font-ubuntu">
                         {prod.badge}
                       </div>
                     </button>
@@ -168,8 +168,8 @@ export default function HomePage() {
 
       {/* 5. INDUSTRIES WE SERVE - SILKY SMOOTH GPU-ACCELERATED STICKY CARDS */}
       <section
-        style={{ backgroundColor: "var(--bg-main)", borderColor: "rgba(255, 255, 255, 0.2)" }}
-        className="py-20 text-white border-y border-white/20 relative"
+        style={{ backgroundColor: "var(--bg-main)", borderColor: "rgba(255, 255, 255, 0.4)" }}
+        className="py-20 text-white border-y border-white/40 relative"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
@@ -179,7 +179,7 @@ export default function HomePage() {
             />
             <BlurText
               text="Industries We Serve"
-              className="text-3xl sm:text-5xl font-extrabold font-montserrat text-white"
+              className="text-3xl sm:text-5xl font-bold font-ubuntu text-white"
               delayMs={150}
             />
             <BlurText
@@ -197,21 +197,21 @@ export default function HomePage() {
                 style={{
                   top: `calc(100px + ${index * 32}px)`,
                   backgroundColor: "var(--bg-top-highlight)",
-                  borderColor: "rgba(255, 255, 255, 0.6)",
+                  borderColor: "rgba(255, 255, 255, 0.4)",
                 }}
-                className="sticky rounded-3xl p-6 sm:p-10 border border-white/60 shadow-2xl transition-all duration-300 group hover:scale-[1.01]"
+                className="sticky rounded-3xl p-6 sm:p-10 border border-white/40 shadow-2xl transition-all duration-300 group hover:scale-[1.01]"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   <div className="lg:col-span-7 space-y-4">
                     <div className="flex items-center space-x-3">
                       <span
-                        style={{ backgroundColor: "var(--bg-darker-right)", borderColor: "rgba(255, 255, 255, 0.5)" }}
-                        className="px-3 py-1 rounded-full text-xs font-bold text-white border uppercase tracking-wider"
+                        style={{ backgroundColor: "var(--bg-darker-right)", borderColor: "rgba(255, 255, 255, 0.4)" }}
+                        className="px-3 py-1 rounded-full text-xs font-bold text-white border border-white/40 uppercase tracking-wider"
                       >
                         {industry.stats}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-white font-montserrat">
+                    <h3 className="text-2xl font-bold text-white font-ubuntu">
                       {industry.name} Industry
                     </h3>
                     <p className="text-slate-300 text-sm leading-relaxed">
@@ -219,7 +219,7 @@ export default function HomePage() {
                     </p>
                     <Link
                       href={`/industries/${industry.slug}`}
-                      className="inline-flex items-center space-x-2 text-sm font-bold text-white hover:text-white/80 transition-colors"
+                      className="inline-flex items-center space-x-2 text-sm font-bold text-white hover:text-white/80 transition-colors font-ubuntu"
                     >
                       <span>Explore {industry.name}</span>
                       <ArrowRight className="w-4 h-4 text-[#facc15] group-hover:translate-x-1 transition-transform" />
@@ -238,14 +238,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Dual Image Showcase */}
             <div className="lg:col-span-6 relative grid grid-cols-12 gap-4">
-              <div className="col-span-7 h-[340px] rounded-2xl overflow-hidden border border-[#2084A0] shadow-lg relative">
+              <div className="col-span-7 h-[340px] rounded-2xl overflow-hidden border border-white/40 shadow-lg relative">
                 <img
                   src="/blue_chemical_drums.png"
                   alt="Industrial Chemical Inventory"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="col-span-5 h-[260px] self-end rounded-2xl overflow-hidden border border-[#2084A0] shadow-xl relative -ml-6 -mb-4 z-10 bg-[#033645] p-2">
+              <div className="col-span-5 h-[260px] self-end rounded-2xl overflow-hidden border border-white/40 shadow-xl relative -ml-6 -mb-4 z-10 bg-[#033645] p-2">
                 <img
                   src="/r_and_d_chemist_lab.png"
                   alt="Quality Control Scientist"
@@ -262,7 +262,7 @@ export default function HomePage() {
               />
               <BlurText
                 text="Engineered Specialty Chemicals Delivering High Performance & Reliability"
-                className="text-3xl sm:text-4xl font-extrabold text-white font-montserrat leading-tight"
+                className="text-3xl sm:text-4xl font-bold text-white font-ubuntu leading-tight"
                 delayMs={150}
               />
               <p className="text-slate-300 text-base leading-relaxed">
@@ -270,32 +270,32 @@ export default function HomePage() {
               </p>
 
               <div className="space-y-4 pt-2">
-                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-[#2084A0]/40 transition-colors">
-                  <div className="p-2 rounded-full bg-[#02252F] text-[#2084A0] border border-[#2084A0]/40">
+                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-white/40 transition-colors">
+                  <div className="p-2 rounded-full bg-[#02252F] text-white border border-white/40">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Outstanding Performance</h4>
+                    <h4 className="text-sm font-bold text-white font-ubuntu">Outstanding Performance</h4>
                     <p className="text-xs text-slate-300">Formulated for maximum color strength, thermal stability, and lightfastness.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-[#2084A0]/40 transition-colors">
-                  <div className="p-2 rounded-full bg-[#02252F] text-[#2084A0] border border-[#2084A0]/40">
+                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-white/40 transition-colors">
+                  <div className="p-2 rounded-full bg-[#02252F] text-white border border-white/40">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Driven By Innovation</h4>
+                    <h4 className="text-sm font-bold text-white font-ubuntu">Driven By Innovation</h4>
                     <p className="text-xs text-slate-300">Continuous R&D focused on eco-friendly, zero-discharge chemical synthesis.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-[#2084A0]/40 transition-colors">
-                  <div className="p-2 rounded-full bg-[#02252F] text-[#2084A0] border border-[#2084A0]/40">
+                <div className="flex items-start space-x-4 p-3.5 rounded-xl bg-[#033645] border border-white/40 transition-colors">
+                  <div className="p-2 rounded-full bg-[#02252F] text-white border border-white/40">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">Sustainable Solutions</h4>
+                    <h4 className="text-sm font-bold text-white font-ubuntu">Sustainable Solutions</h4>
                     <p className="text-xs text-slate-300">Compliant with global REACH, ZDHC, and ISO standard regulations.</p>
                   </div>
                 </div>
@@ -306,12 +306,12 @@ export default function HomePage() {
       </section>
 
       {/* 6. THOUGHT LEADERSHIP & EXECUTIVE COMMITMENT (From reference) */}
-      <section className="py-20 bg-[#012B37] text-white px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+      <section className="py-20 bg-[#012B37] text-white px-4 sm:px-6 lg:px-8 border-b border-white/40">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-extrabold font-montserrat leading-tight">
-                Established as <span className="text-[#4ade80]">Thought Leaders</span> in Chemical Manufacturing
+              <h2 className="text-3xl sm:text-4xl font-bold font-ubuntu leading-tight text-white">
+                Established as <span className="text-white">Thought Leaders</span> in Chemical Manufacturing
               </h2>
               <p className="text-slate-300 text-base leading-relaxed">
                 With over three decades of operational excellence, our executive leadership and technical team drive value across global supply chains through rigorous quality governance and custom shade matching.
@@ -320,7 +320,7 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-5 relative">
-              <div className="h-[320px] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl relative">
+              <div className="h-[320px] rounded-2xl overflow-hidden border border-white/40 shadow-2xl relative">
                 <img
                   src="/leadership_meeting.png"
                   alt="Chemfarm Leadership & Research Team"
@@ -333,7 +333,7 @@ export default function HomePage() {
       </section>
 
       {/* 7. CERTIFICATIONS & REGULATORY COMPLIANCE STRIP */}
-      <section className="py-16 bg-[#02252F] border-b border-white/20 px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 bg-[#02252F] border-b border-white/40 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-7xl mx-auto space-y-8">
           <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white drop-shadow-sm">
             All formulations adhere to international standards and hold renowned certifications
@@ -342,25 +342,25 @@ export default function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
               <ShieldCheck className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-montserrat">ISO 9001:2015</h4>
+              <h4 className="text-sm font-bold text-white font-ubuntu">ISO 9001:2015</h4>
               <p className="text-xs text-slate-300">Quality Management System</p>
             </div>
 
             <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
               <Award className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-montserrat">REACH Compliant</h4>
+              <h4 className="text-sm font-bold text-white font-ubuntu">REACH Compliant</h4>
               <p className="text-xs text-slate-300">EU Chemical Safety Directives</p>
             </div>
 
             <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
               <Sparkles className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-montserrat">Ø ZDHC Level 3</h4>
+              <h4 className="text-sm font-bold text-white font-ubuntu">Ø ZDHC Level 3</h4>
               <p className="text-xs text-slate-300">Zero Discharge Hazardous Chemicals</p>
             </div>
 
             <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
               <CheckCircle2 className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-montserrat">OEKO-TEX ECO</h4>
+              <h4 className="text-sm font-bold text-white font-ubuntu">OEKO-TEX ECO</h4>
               <p className="text-xs text-slate-300">Sustainable Textile Standard</p>
             </div>
           </div>
@@ -393,7 +393,7 @@ export default function HomePage() {
               />
               <BlurText
                 text="Precision Engineering from Raw Material to Final Shade"
-                className="text-3xl sm:text-4xl font-extrabold font-montserrat leading-tight text-white"
+                className="text-3xl sm:text-4xl font-bold font-ubuntu leading-tight text-white"
                 delayMs={150}
               />
               <BlurText
@@ -403,12 +403,12 @@ export default function HomePage() {
               />
 
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-[#033645] border border-[#2084A0]">
-                  <h4 className="text-lg font-bold text-white font-montserrat">ISO 9001:2015</h4>
+                <div className="p-4 rounded-xl bg-[#033645] border border-white/40">
+                  <h4 className="text-lg font-bold text-white font-ubuntu">ISO 9001:2015</h4>
                   <p className="text-xs text-slate-300 mt-1">Quality Management System</p>
                 </div>
-                <div className="p-4 rounded-xl bg-[#033645] border border-[#2084A0]">
-                  <h4 className="text-lg font-bold text-white font-montserrat">Eco-Compliant</h4>
+                <div className="p-4 rounded-xl bg-[#033645] border border-white/40">
+                  <h4 className="text-lg font-bold text-white font-ubuntu">Eco-Compliant</h4>
                   <p className="text-xs text-slate-300 mt-1">Sustainable Waste Neutralization</p>
                 </div>
               </div>
@@ -477,16 +477,17 @@ export default function HomePage() {
         </div>
       </section>
       {/* 8. FIND US LOCATION MAP SECTION */}
-      <section className="py-20 bg-[#012B37] text-white border-t border-[#2084A0]/30 px-4 sm:px-6 lg:px-8">
+      {/* 9. GEOGRAPHIC FOOTPRINT & MAP LOCATION */}
+      <section className="py-20 bg-[#012B37] text-white border-t border-white/40 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto space-y-8 text-center">
-          <div className="inline-block bg-[#033645] border border-[#2084A0] text-white px-8 py-2.5 rounded-full shadow-lg">
-            <span className="font-serif italic text-lg sm:text-xl font-medium tracking-wide">Find Us</span>
+          <div className="inline-block bg-[#033645] border border-white/40 text-white px-8 py-2.5 rounded-full shadow-lg">
+            <span className="font-ubuntu text-lg sm:text-xl font-bold tracking-wide">Find Us</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-serif  text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold font-ubuntu text-white tracking-tight">
             Chemfarm International
           </h2>
 
-          <div className="relative rounded-3xl overflow-hidden border-2 border-[#2084A0] shadow-2xl bg-[#033645] max-w-4xl mx-auto">
+          <div className="relative rounded-3xl overflow-hidden border border-white/40 shadow-2xl bg-[#033645] max-w-4xl mx-auto">
             <iframe
               title="Chemfarm International Location Map"
               src="https://maps.google.com/maps?q=28.4724529,77.0548273&hl=en&z=14&output=embed"
@@ -501,10 +502,10 @@ export default function HomePage() {
                 href="https://www.google.com/maps/dir/28.6039544,77.0905357/Chemfarm+International,+7th+floor,+DLF,+Palm+Court,+704,+Mehrauli-Gurgaon+Rd,+Industrial+Development+Area,+Sector+16,+Gurugram,+Haryana+122007/@28.5365113,77.0035152,12z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x390d193da2150af3:0x4ee6ad974398ab3f!2m2!1d77.0548273!2d28.4724529!3e9?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2.5 rounded-full bg-[#012B37]/90 hover:bg-[#033645] border border-[#2084A0] text-white font-serif italic text-sm font-bold tracking-wider uppercase shadow-xl backdrop-blur-md transition-all flex items-center space-x-2"
+                className="px-6 py-2.5 rounded-full bg-[#012B37]/90 hover:bg-[#033645] border border-white/40 text-white font-ubuntu text-sm  tracking-wider uppercase shadow-xl backdrop-blur-md transition-all flex items-center space-x-2"
               >
                 <span>GET DIRECTIONS</span>
-                <ArrowRight className="w-4 h-4 text-[#2084A0]" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>

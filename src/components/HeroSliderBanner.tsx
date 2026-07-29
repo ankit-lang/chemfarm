@@ -124,10 +124,10 @@ export default function HeroSliderBanner() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
               <div className="max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#012B37]/35 backdrop-blur-md border border-white/20 shadow-2xl space-y-5 text-left font-sans">
                 {/* Main Heading */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal font-cormorant leading-[1.1] text-white tracking-wide">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light font-ubuntu leading-[1.05] tracking-tight text-white">
                   {slide.titlePrimary}{" "}
                   <br />
-                  <span className="font-cormorant font-normal text-white block sm:inline italic">
+                  <span className="font-ubuntu font-light text-white block sm:inline tracking-tight">
                     {slide.titleSecondary}
                   </span>
                 </h1>
@@ -142,7 +142,7 @@ export default function HeroSliderBanner() {
                   <Link href={slide.primaryCtaLink} className="w-full sm:w-auto">
                     <SpecularButton
                       size="md"
-                      bgGradient="linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%)"
+                      bgGradient="linear-gradient(110deg, #094f48 0%, #015863 40%, #024237 80%, #055c48 100%)"
                       lineColor="#ffffff"
                       baseColor="#015863"
                       textColor="#ffffff"
@@ -158,7 +158,7 @@ export default function HeroSliderBanner() {
                   <Link href={slide.secondaryCtaLink} className="w-full sm:w-auto">
                     <SpecularButton
                       size="md"
-                      bgGradient="linear-gradient(110deg, rgba(68, 69, 23, 0.5) 0%, rgba(9, 79, 72, 0.6) 18%, rgba(1, 88, 99, 0.6) 50%, rgba(0, 118, 134, 0.6) 80%, rgba(0, 140, 157, 0.6) 100%)"
+                      bgGradient="linear-gradient(110deg, rgba(9, 79, 72, 0.7) 0%, rgba(1, 88, 99, 0.7) 50%, rgba(2, 66, 55, 0.7) 100%)"
                       blur={12}
                       lineColor="#ffffff"
                       baseColor="#02252F"

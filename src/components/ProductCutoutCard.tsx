@@ -26,7 +26,7 @@ export function ProductCutoutCard({
   detailsLink,
 }: CutoutCardProps) {
   return (
-    <div className="relative w-full rounded-[28px] bg-slate-900 text-white border border-white shadow-2xl overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300">
+    <div className="relative w-full rounded-[28px] bg-slate-900 text-white border border-white/40 shadow-2xl overflow-hidden flex flex-col group hover:-translate-y-1.5 transition-all duration-300">
       {/* Media Top Container */}
       <div className="relative h-64 w-full overflow-hidden bg-slate-950">
         <Image
@@ -80,7 +80,7 @@ export function ProductCutoutCard({
       {/* Content Container */}
       <div className="p-6 flex-1 flex flex-col justify-between space-y-4 bg-slate-900">
         <div className="space-y-2">
-          <h3 className="text-xl font-bold font-montserrat text-white leading-snug h-7 flex items-center">
+          <h3 className="text-xl font-bold font-ubuntu text-white leading-snug h-7 flex items-center">
             {title}
           </h3>
           <p className="text-xs text-slate-400 leading-relaxed h-12 line-clamp-2 font-light">
@@ -89,10 +89,10 @@ export function ProductCutoutCard({
         </div>
 
         {/* Footer Row with Specs and Pill Button - Uniform Alignment */}
-        <div className="pt-4 border-t border-white/20 flex items-center justify-between gap-3 min-h-[52px]">
+        <div className="pt-4 border-t border-white/40 flex items-center justify-between gap-3 min-h-[52px]">
           <div className="flex flex-wrap gap-1.5 text-[10px] text-slate-300 font-medium max-w-[65%]">
             {specs.map((spec, sIdx) => (
-              <span key={sIdx} className="bg-slate-800/80 border border-white/30 px-2 py-0.5 rounded text-white whitespace-nowrap">
+              <span key={sIdx} className="bg-slate-800/80 border border-white/40 px-2 py-0.5 rounded text-white whitespace-nowrap">
                 {spec}
               </span>
             ))}

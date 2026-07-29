@@ -16,15 +16,15 @@
     --bg-main: #012B37;
     --bg-top-highlight: #033645;
     --bg-darker-right: #02252F;
-    --brand-border: #2084A0;
+    --brand-border: rgba(255, 255, 255, 0.4);
     --text-primary: #FFFFFF;
 
-    --brand-green: #2084A0;
+    --brand-green: #FFFFFF;
     --brand-green-hover: #033645;
     --charcoal: #FFFFFF;
     --secondary-grey: #94a3b8;
-    --icon-blue: #2084A0;
-    --icon-gold: #2084A0;
+    --icon-blue: #FFFFFF;
+    --icon-gold: #FFFFFF;
     --icon-teal: #033645;
     --icon-red: #02252F;
     --navy-dark: #012B37;
@@ -60,13 +60,13 @@
 body {
   color: var(--text-primary);
   background-color: var(--bg-main, #012B37);
-  font-family: var(--font-open-sans), sans-serif;
+  font-family: var(--font-ubuntu), sans-serif;
   overflow-x: hidden;
   transition: background-color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-ubuntu), sans-serif;
 }
 
 /* Custom Utilities */

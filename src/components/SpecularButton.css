@@ -2,7 +2,7 @@
   --sb-radius: 999px;
   --sb-text-color: #ffffff;
   --sb-bg: linear-gradient(110deg, #444517 0%, #094f48 18%, #015863 50%, #007686 80%, #008c9d 100%);
-  --sb-line-color: rgba(250, 204, 21, 0.7);
+  --sb-line-color: rgba(255, 255, 255, 0.4);
 
   position: relative;
   display: inline-flex;

@@ -21,8 +21,8 @@
   align-items: center;
   gap: 0.75rem;
   cursor: pointer;
-  transform: translateX(calc(var(--effect, 0) * var(--max-shift, 20px)));
-  transition: color 0.2s ease, transform 0.15s ease;
+  transform: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
   color: var(--text-color, #ffffff);
   font-size: var(--font-size, 1rem);
   max-width: 100%;
@@ -34,18 +34,25 @@
   font-weight: 700;
 }
 
-.line-sidebar__marker {
+.line-sidebar__marker-wrapper {
+  display: flex;
+  align-items: center;
+  width: 32px;
   flex-shrink: 0;
-  width: calc(4px + var(--effect, 0) * var(--marker-length, 24px));
+}
+
+.line-sidebar__marker {
+  width: 12px;
   height: 2px;
-  background-color: var(--marker-color, #cbd5e1);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 1px;
-  transition: background-color 0.2s ease, width 0.15s ease;
+  transition: background-color 0.25s ease, width 0.25s ease;
 }
 
 .line-sidebar__item:hover .line-sidebar__marker,
 .line-sidebar__item[aria-current="true"] .line-sidebar__marker {
   background-color: #ffffff;
+  width: 28px;
 }
 
 .line-sidebar__label {
