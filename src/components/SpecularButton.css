@@ -64,15 +64,19 @@
 /* Canvas extends past the button so the rim glow can bleed outside the edge */
 .specular-button__fx {
   position: absolute;
-  inset: -20px;
+  inset: 0;
   pointer-events: none;
   z-index: 1;
+  overflow: hidden;
+  border-radius: var(--sb-radius);
 }
 
 .specular-button__fx canvas {
   display: block;
   width: 100%;
   height: 100%;
+  background: transparent !important;
+  pointer-events: none !important;
 }
 
 .specular-button__label {

@@ -4,6 +4,11 @@
   --font-ubuntu: var(--font-ubuntu), sans-serif;
   --font-montserrat: var(--font-montserrat), sans-serif;
   --font-open-sans: var(--font-open-sans), sans-serif;
+  --font-cormorant: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
 }
 
 @layer base {
