@@ -99,13 +99,11 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group py-1">
-            <div className="bg-white px-3 py-1.5 shadow-md border border-white/40 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
-              <img
-                src="/logo/logo.png"
-                alt="Chemfarm International Logo"
-                className="h-7 sm:h-9 w-auto object-contain"
-              />
-            </div>
+            <img
+              src="/logo/finallogo (1).svg"
+              alt="Chemfarm International Logo"
+              className="h-11 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            />
           </Link>
 
           {/* Desktop Nav Links */}

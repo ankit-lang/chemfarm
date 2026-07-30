@@ -87,13 +87,11 @@ export default function Footer() {
         {/* Column 1: Brand & Bio */}
         <div className="lg:col-span-2 space-y-4 flex flex-col items-center md:items-start">
           <Link href="/" className="inline-block group">
-            <div className="px-3.5 py-2 bg-white rounded-xl shadow-md border border-white/40 inline-block group-hover:scale-105 transition-transform duration-300">
-              <img
-                src="/logo/logo.png"
-                alt="Chemfarm International Logo"
-                className="h-10 sm:h-11 w-auto object-contain mx-auto md:mx-0"
-              />
-            </div>
+            <img
+              src="/logo/finallogo (1).svg"
+              alt="Chemfarm International Logo"
+              className="h-11 sm:h-12 w-auto object-contain mx-auto md:mx-0 group-hover:scale-105 transition-transform duration-300"
+            />
           </Link>
 
           <p className="text-sm text-slate-300 leading-relaxed max-w-md mx-auto md:mx-0 font-ubuntu">

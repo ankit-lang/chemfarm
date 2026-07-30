@@ -5,10 +5,15 @@
   --font-montserrat: var(--font-montserrat), sans-serif;
   --font-open-sans: var(--font-open-sans), sans-serif;
   --font-cormorant: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-script: var(--font-script), "Pinyon Script", "Great Vibes", cursive;
 }
 
 .font-cormorant {
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-script {
+  font-family: var(--font-script), "Pinyon Script", "Great Vibes", cursive;
 }
 
 @layer base {

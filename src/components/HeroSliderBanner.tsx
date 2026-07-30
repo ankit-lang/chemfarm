@@ -77,6 +77,62 @@ const SLIDES: SlideData[] = [
   },
 ];
 
+const FlaskTIcon = ({ className = "h-[0.88em] w-auto inline-block mx-[0.04em]" }: { className?: string }) => (
+  <span className="inline-inline-flex items-center justify-center align-middle relative -top-[0.06em]">
+    <svg
+      viewBox="0 0 60 75"
+      fill="currentColor"
+      className={className}
+      style={{ display: "inline-block", verticalAlign: "middle" }}
+    >
+      {/* Rising Bubbles */}
+      <circle cx="30" cy="4" r="3" fill="currentColor" opacity="0.95" />
+      <circle cx="21" cy="11" r="2.2" fill="currentColor" opacity="0.85" />
+      <circle cx="38" cy="13" r="2.5" fill="currentColor" opacity="0.9" />
+
+      {/* Top T Bar (Lip of Flask and crossbar of letter T) */}
+      <rect x="5" y="20" width="50" height="6.5" rx="2" fill="currentColor" />
+
+      {/* Flask Body & Neck */}
+      <path
+        d="M23 26 H37 V34 L51 58 C53 62 50 66 45 66 H15 C10 66 7 62 9 58 L23 34 Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="4.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+
+      {/* Liquid Fill Inside Flask Base */}
+      <path
+        d="M14 56 L20 45 C24 43 36 43 40 45 L46 56 C48 59 45 62 41 62 H19 C15 62 12 59 14 56 Z"
+        fill="currentColor"
+        opacity="0.85"
+      />
+    </svg>
+  </span>
+);
+
+const renderTitleWithFlaskT = (text: string) => {
+  if (!text.toLowerCase().includes("chemistry")) {
+    return text;
+  }
+  const parts = text.split(/(chemistry)/gi);
+  return parts.map((part, i) => {
+    if (part.toLowerCase() === "chemistry") {
+      const isUpper = part === "CHEMISTRY";
+      return (
+        <span key={i} className="inline-inline-flex items-center">
+          {isUpper ? "CHEMIS" : "Chemis"}
+          <FlaskTIcon />
+          {isUpper ? "RY" : "ry"}
+        </span>
+      );
+    }
+    return part;
+  });
+};
+
 export default function HeroSliderBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -123,14 +179,16 @@ export default function HeroSliderBanner() {
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
               <div className="max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#012B37]/35 backdrop-blur-md border border-white/20 shadow-2xl space-y-5 text-left font-sans">
-                {/* Main Heading */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light font-ubuntu leading-[1.05] tracking-tight text-white">
-                  {slide.titlePrimary}{" "}
-                  <br />
-                  <span className="font-ubuntu font-light text-white block sm:inline tracking-tight">
-                    {slide.titleSecondary}
-                  </span>
-                </h1>
+                {slide.id === 2 ? (
+                  <h1 className="text-4xl sm:text-5xl lg:text-5xl font-normal font-script text-white leading-tight drop-shadow-xl capitalize py-1">
+                    {renderTitleWithFlaskT(slide.titlePrimary)} {" "}
+                    <span className="text-white">{slide.titleSecondary}</span>
+                  </h1>
+                ) : (
+                  <h1 className="text-3xl lg:text-3xl font-semibold font-montserrat uppercase leading-tight text-white">
+                    {renderTitleWithFlaskT(slide.titlePrimary)} {" "} {slide.titleSecondary}
+                  </h1>
+                )}
 
                 {/* Description */}
                 <p className="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed max-w-xl font-light">

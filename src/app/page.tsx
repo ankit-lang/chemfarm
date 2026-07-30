@@ -305,70 +305,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. THOUGHT LEADERSHIP & EXECUTIVE COMMITMENT (From reference) */}
-      <section className="py-20 bg-[#012B37] text-white px-4 sm:px-6 lg:px-8 border-b border-white/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold font-ubuntu leading-tight text-white">
-                Established as <span className="text-white">Thought Leaders</span> in Chemical Manufacturing
-              </h2>
-              <p className="text-slate-300 text-base leading-relaxed">
-                With over three decades of operational excellence, our executive leadership and technical team drive value across global supply chains through rigorous quality governance and custom shade matching.
-              </p>
-
-            </div>
-
-            <div className="lg:col-span-5 relative">
-              <div className="h-[320px] rounded-2xl overflow-hidden border border-white/40 shadow-2xl relative">
-                <img
-                  src="/leadership_meeting.png"
-                  alt="Chemfarm Leadership & Research Team"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. CERTIFICATIONS & REGULATORY COMPLIANCE STRIP */}
-      <section className="py-16 bg-[#02252F] border-b border-white/40 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white drop-shadow-sm">
-            All formulations adhere to international standards and hold renowned certifications
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
-              <ShieldCheck className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-ubuntu">ISO 9001:2015</h4>
-              <p className="text-xs text-slate-300">Quality Management System</p>
-            </div>
-
-            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
-              <Award className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-ubuntu">REACH Compliant</h4>
-              <p className="text-xs text-slate-300">EU Chemical Safety Directives</p>
-            </div>
-
-            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
-              <Sparkles className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-ubuntu">Ø ZDHC Level 3</h4>
-              <p className="text-xs text-slate-300">Zero Discharge Hazardous Chemicals</p>
-            </div>
-
-            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
-              <CheckCircle2 className="w-10 h-10 text-white" />
-              <h4 className="text-sm font-bold text-white font-ubuntu">OEKO-TEX ECO</h4>
-              <p className="text-xs text-slate-300">Sustainable Textile Standard</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. MANUFACTURING & R&D EXCELLENCE SECTION */}
-      <section className="py-20 bg-[#012B37] text-white relative overflow-hidden border-t border-white/40">
+      {/* 6. MANUFACTURING & R&D EXCELLENCE SECTION */}
+      <section className="py-20 bg-[#012B37] text-white relative overflow-hidden border-b border-white/40">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#015863]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -447,6 +385,68 @@ export default function HomePage() {
                   </SpecularButton>
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. THOUGHT LEADERSHIP & EXECUTIVE COMMITMENT (From reference) */}
+      <section className="py-20 bg-[#012B37] text-white px-4 sm:px-6 lg:px-8 border-b border-white/40">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-bold font-ubuntu leading-tight text-white">
+                Established as <span className="text-white">Thought Leaders</span> in Chemical Manufacturing
+              </h2>
+              <p className="text-slate-300 text-base leading-relaxed">
+                With over three decades of operational excellence, our executive leadership and technical team drive value across global supply chains through rigorous quality governance and custom shade matching.
+              </p>
+
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              <div className="h-[320px] rounded-2xl overflow-hidden border border-white/40 shadow-2xl relative">
+                <img
+                  src="/leadership_meeting.png"
+                  alt="Chemfarm Leadership & Research Team"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. CERTIFICATIONS & REGULATORY COMPLIANCE STRIP */}
+      <section className="py-16 bg-[#02252F] border-b border-white/40 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto space-y-8">
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white drop-shadow-sm">
+            All formulations adhere to international standards and hold renowned certifications
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <ShieldCheck className="w-10 h-10 text-white" />
+              <h4 className="text-sm font-bold text-white font-ubuntu">ISO 9001:2015</h4>
+              <p className="text-xs text-slate-300">Quality Management System</p>
+            </div>
+
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <Award className="w-10 h-10 text-white" />
+              <h4 className="text-sm font-bold text-white font-ubuntu">REACH Compliant</h4>
+              <p className="text-xs text-slate-300">EU Chemical Safety Directives</p>
+            </div>
+
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <Sparkles className="w-10 h-10 text-white" />
+              <h4 className="text-sm font-bold text-white font-ubuntu">Ø ZDHC Level 3</h4>
+              <p className="text-xs text-slate-300">Zero Discharge Hazardous Chemicals</p>
+            </div>
+
+            <div className="bg-[#033645] p-6 rounded-xl border border-white/40 shadow-sm flex flex-col items-center space-y-2">
+              <CheckCircle2 className="w-10 h-10 text-white" />
+              <h4 className="text-sm font-bold text-white font-ubuntu">OEKO-TEX ECO</h4>
+              <p className="text-xs text-slate-300">Sustainable Textile Standard</p>
             </div>
           </div>
         </div>
