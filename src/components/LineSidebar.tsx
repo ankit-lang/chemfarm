@@ -44,7 +44,7 @@ export default function LineSidebar({
   accentColor = "#FFFFFF",
   textColor = "#FFFFFF",
   markerColor = "rgba(32, 132, 160, 0.4)",
-  showIndex = true,
+  showIndex = false,
   showMarker = true,
   proximityRadius = 100,
   maxShift = 30,

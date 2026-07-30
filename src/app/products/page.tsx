@@ -53,7 +53,7 @@ export default function ProductsPage() {
                   : "bg-[#02252F] text-white border border-white/40 hover:border-white"
               }`}
             >
-              All Categories ({PRODUCTS_DATA.length})
+              All Categories
             </button>
             {PRODUCTS_DATA.map((prod) => (
               <button

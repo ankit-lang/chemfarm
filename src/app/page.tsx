@@ -141,7 +141,7 @@ export default function HomePage() {
               {/* Quick Grid Thumbnails of Other Products */}
               <div className="mt-6">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-3 font-ubuntu">
-                  All Products ({PRODUCTS_DATA.length})
+                  All Products
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {PRODUCTS_DATA.map((prod, idx) => (

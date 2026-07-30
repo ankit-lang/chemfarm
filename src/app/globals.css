@@ -101,6 +101,16 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-champagne {
+  background: linear-gradient(135deg, #f9edd4 0%, #e2c997 38%, #c8ab70 72%, #a88d55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.drop-shadow-gold {
+  filter: drop-shadow(0 2px 10px rgba(226, 201, 151, 0.35));
+}
+
 /* Marquee Animation */
 @keyframes marquee {
   0% { transform: translateX(0%); }

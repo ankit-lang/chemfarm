@@ -180,13 +180,24 @@ export default function HeroSliderBanner() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
               <div className="max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#012B37]/35 backdrop-blur-md border border-white/20 shadow-2xl space-y-5 text-left font-sans">
                 {slide.id === 2 ? (
-                  <h1 className="text-4xl sm:text-5xl lg:text-5xl font-normal font-script text-white leading-tight drop-shadow-xl capitalize py-1">
-                    {renderTitleWithFlaskT(slide.titlePrimary)} {" "}
-                    <span className="text-white">{slide.titleSecondary}</span>
+                  <h1 className="text-3xl md:text-4xl lg:text-4xl font-normal font-script text-white leading-tight drop-shadow-xl capitalize py-1">
+                    {renderTitleWithFlaskT(slide.titlePrimary)}{" "}
+                    <span className="text-gradient-champagne drop-shadow-gold">{slide.titleSecondary}</span>
                   </h1>
                 ) : (
-                  <h1 className="text-3xl lg:text-3xl  font-montserrat uppercase leading-tight text-white">
-                    {renderTitleWithFlaskT(slide.titlePrimary)} {" "} {slide.titleSecondary}
+                  <h1 className="text-3xl lg:text-3xl font-montserrat uppercase leading-tight text-white">
+                    {slide.id === 1 ? (
+                      <>
+                        <span className="text-white">Chem</span>
+                        <span className="text-gradient-champagne drop-shadow-gold">farm</span>{" "}
+                        <span className="text-white">{slide.titleSecondary}</span>
+                      </>
+                    ) : (
+                      <>
+                        {renderTitleWithFlaskT(slide.titlePrimary)}{" "}
+                        <span className="text-gradient-champagne drop-shadow-gold">{slide.titleSecondary}</span>
+                      </>
+                    )}
                   </h1>
                 )}
 
