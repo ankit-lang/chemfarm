@@ -185,7 +185,7 @@ export default function HeroSliderBanner() {
                     <span className="text-white">{slide.titleSecondary}</span>
                   </h1>
                 ) : (
-                  <h1 className="text-3xl lg:text-3xl font-semibold font-montserrat uppercase leading-tight text-white">
+                  <h1 className="text-3xl lg:text-3xl  font-montserrat uppercase leading-tight text-white">
                     {renderTitleWithFlaskT(slide.titlePrimary)} {" "} {slide.titleSecondary}
                   </h1>
                 )}
