@@ -164,7 +164,7 @@ export default function HeroSliderBanner() {
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentIndex ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
             }`}
         >
-          {/* Background Image - Bright and without heavy dark gradients */}
+          {/* Background Image */}
           <div className="relative w-full h-full">
             <Image
               src={slide.imageSrc}
@@ -173,6 +173,9 @@ export default function HeroSliderBanner() {
               priority={idx === 0}
               className="object-cover object-center scale-105 transition-transform duration-10000 ease-out brightness-110 contrast-105"
             />
+            {slide.id === 1 && (
+              <div className="absolute inset-0 bg-gradient-to-r from-[#012B37]/90 via-[#012B37]/60 to-transparent pointer-events-none" />
+            )}
           </div>
 
           {/* Slide Content Container with Lighter Aligned Glassmorphism Card */}
