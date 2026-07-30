@@ -173,7 +173,7 @@ export default function HeroSliderBanner() {
               priority={idx === 0}
               className="object-cover object-center scale-105 transition-transform duration-10000 ease-out brightness-110 contrast-105"
             />
-            {slide.id === 1 && (
+            {(slide.id === 1 || slide.id === 3) && (
               <div className="absolute inset-0 bg-gradient-to-r from-[#012B37]/90 via-[#012B37]/60 to-transparent pointer-events-none" />
             )}
           </div>
