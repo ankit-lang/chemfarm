@@ -256,6 +256,16 @@ export default function Header() {
             </Link>
 
             <Link
+              href="/resources"
+              className={`text-sm font-medium font-ubuntu transition-colors ${pathname === "/resources"
+                  ? "text-white font-bold underline underline-offset-8 decoration-2 decoration-white"
+                  : "text-white/90 hover:text-white"
+                }`}
+            >
+              Resources
+            </Link>
+
+            <Link
               href="/contact"
               className={`text-sm font-medium font-ubuntu transition-colors ${pathname === "/contact"
                   ? "text-white font-bold underline underline-offset-8 decoration-2 decoration-white"
@@ -353,6 +363,13 @@ export default function Header() {
               className="block text-base font-semibold font-ubuntu text-white hover:text-slate-200"
             >
               Quality Policy & Assurance
+            </Link>
+            <Link
+              href="/resources"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-base font-semibold font-ubuntu text-white hover:text-slate-200"
+            >
+              Resources & Downloads
             </Link>
             <Link
               href="/contact"
